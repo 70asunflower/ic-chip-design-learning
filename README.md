@@ -40,7 +40,7 @@ _Empty — add your first open-source project!_
 <details>
 <summary>5-Courses-Tutorials</summary>
 
-_Empty — add your first course/tutorial!_
+- [CUDA Programming Guide](0-Resources/5-Courses-Tutorials/cuda-programming-guide.md) — NVIDIA 官方 GPU 并行编程模型文档
 
 </details>
 
@@ -265,3 +265,4 @@ ic-chip-design-learning/
 |------------|-----------------------------------------------|
 | 2026-03-31 | Repository init, directory structure, wiki nav|
 | 2026-03-31 | Added note template                           |
+| 2026-04-03 | Added CUDA Programming Guide                  |

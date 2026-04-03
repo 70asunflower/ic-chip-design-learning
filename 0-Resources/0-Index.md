@@ -7,4 +7,5 @@
 | 3 | [EDA Tools](3-EDA-Tools/README.md) | Electronic Design Automation tools |
 | 4 | [Open Source Projects](4-OpenSource-Projects/README.md) | Community IC design projects |
 | 5 | [Courses & Tutorials](5-Courses-Tutorials/README.md) | Online courses and learning materials |
+|   | [CUDA Programming Guide](5-Courses-Tutorials/cuda-programming-guide.md) | NVIDIA 官方 GPU 并行编程模型文档 |
 | 6 | [Industry Standards](6-Industry-Standards/README.md) | Specifications and standards documents |
