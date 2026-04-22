@@ -2,7 +2,8 @@
 
 | # | Category | Description |
 |---|----------|-------------|
-| 1 | [Books](0-Books/README.md) | IC design textbooks and references |
+| 1 | [Books](1-Books/README.md) | IC design textbooks and references |
+|   | [Computer Architecture: A Quantitative Approach](1-Books/README.md) | Hennessy & Patterson 体系结构经典教材 |
 | 2 | [Papers](2-Papers/README.md) | Key academic papers and articles |
 | 3 | [EDA Tools](3-EDA-Tools/README.md) | Electronic Design Automation tools |
 | 4 | [Open Source Projects](4-OpenSource-Projects/README.md) | Community IC design projects |

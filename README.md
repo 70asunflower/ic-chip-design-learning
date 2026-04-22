@@ -12,7 +12,7 @@
 <details>
 <summary>1-Books</summary>
 
-_Empty — add your first book!_
+- [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/README.md) — Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
 
 </details>
 
@@ -61,7 +61,7 @@ _Empty — add your first industry standard!_
 <details>
 <summary>1-Digital-Design</summary>
 
-_Empty — add your first digital design note!_
+- [CA: Quantitative Approach 学习笔记](1-Notes/1-Digital-Design/ca-quantitative-approach-notes.md) — 计算机体系结构 Cache/Memory Hierarchy 笔记（持续更新）
 
 </details>
 
@@ -266,3 +266,4 @@ ic-chip-design-learning/
 | 2026-03-31 | Repository init, directory structure, wiki nav|
 | 2026-03-31 | Added note template                           |
 | 2026-04-03 | Added CUDA Programming Guide                  |
+| 2026-04-22 | Added CA: Quantitative Approach 学习笔记 — Cache/Memory Hierarchy |
