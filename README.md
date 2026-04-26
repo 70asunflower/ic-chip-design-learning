@@ -13,6 +13,7 @@
 <summary>1-Books</summary>
 
 - [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/README.md) — Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
+- [Linux C编程一站式学习](0-Resources/1-Books/linux-c-programming.md) — C 语言 + Linux 系统编程一站式覆盖（宋劲杉）
 
 </details>
 
@@ -267,3 +268,4 @@ ic-chip-design-learning/
 | 2026-03-31 | Added note template                           |
 | 2026-04-03 | Added CUDA Programming Guide                  |
 | 2026-04-22 | Added CA: Quantitative Approach 学习笔记 — Cache/Memory Hierarchy |
+| 2026-04-26 | Added Linux C编程一站式学习 — C 语言 + Linux 系统编程 |
