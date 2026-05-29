@@ -8,6 +8,8 @@
 | 2 | [Papers](2-Papers/README.md) | Key academic papers and articles |
 | 3 | [EDA Tools](3-EDA-Tools/README.md) | Electronic Design Automation tools |
 | 4 | [Open Source Projects](4-OpenSource-Projects/README.md) | Community IC design projects |
+|   | [NEORV32](4-OpenSource-Projects/neorv32.md) | 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片 |
+|   | [XUANTIE-RV 玄铁](4-OpenSource-Projects/xuantie-rv.md) | 达摩院 RISC-V 开源生态，OpenC910/C906/E906 + wujian100 SoC |
 | 5 | [Courses & Tutorials](5-Courses-Tutorials/README.md) | Online courses and learning materials |
 |   | [CUDA Programming Guide](5-Courses-Tutorials/cuda-programming-guide.md) | NVIDIA 官方 GPU 并行编程模型文档 |
 | 6 | [Industry Standards](6-Industry-Standards/README.md) | Specifications and standards documents |

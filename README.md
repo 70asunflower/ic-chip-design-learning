@@ -34,7 +34,8 @@ _Empty — add your first EDA tool note!_
 <details>
 <summary>4-OpenSource-Projects</summary>
 
-_Empty — add your first open-source project!_
+- [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) — 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片
+- [XUANTIE-RV 玄铁](0-Resources/4-OpenSource-Projects/xuantie-rv.md) — 达摩院 RISC-V 开源生态，OpenC910/C906/E906 + wujian100 SoC
 
 </details>
 
@@ -269,3 +270,5 @@ ic-chip-design-learning/
 | 2026-04-03 | Added CUDA Programming Guide                  |
 | 2026-04-22 | Added CA: Quantitative Approach 学习笔记 — Cache/Memory Hierarchy |
 | 2026-04-26 | Added Linux C编程一站式学习 — C 语言 + Linux 系统编程 |
+| 2026-05-29 | Added NEORV32 RISC-V SoC 开源项目 |
+| 2026-05-29 | Added XUANTIE-RV 玄铁 RISC-V 开源生态 |
