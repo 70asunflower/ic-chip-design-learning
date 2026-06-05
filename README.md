@@ -43,6 +43,7 @@ _Empty — add your first EDA tool note!_
 <summary>5-Courses-Tutorials</summary>
 
 - [CUDA Programming Guide](0-Resources/5-Courses-Tutorials/cuda-programming-guide.md) — NVIDIA 官方 GPU 并行编程模型文档
+- [光通信器件原理：从能级跃迁到硅光芯片](0-Resources/5-Courses-Tutorials/optical-communication-device-principles.md) — 光通信入门科普：调制器/激光器/探测器，连接 IC 制造与光子学
 
 </details>
 
@@ -272,3 +273,4 @@ ic-chip-design-learning/
 | 2026-04-26 | Added Linux C编程一站式学习 — C 语言 + Linux 系统编程 |
 | 2026-05-29 | Added NEORV32 RISC-V SoC 开源项目 |
 | 2026-05-29 | Added XUANTIE-RV 玄铁 RISC-V 开源生态 |
+| 2026-06-05 | Added 光通信器件原理科普 — 从能级跃迁到硅光芯片 |
