@@ -6,6 +6,7 @@
 |   | [Computer Architecture: A Quantitative Approach](1-Books/README.md) | Hennessy & Patterson 体系结构经典教材 |
 |   | [Linux C编程一站式学习](1-Books/linux-c-programming.md) | C 语言 + Linux 系统编程一站式覆盖 |
 | 2 | [Papers](2-Papers/README.md) | Key academic papers and articles |
+|   | [计算机体系结构「森林导览」](2-Papers/computer-architecture-forest-guide.md) | 87页研一综述：从通用处理器到新兴范式，附PDF |
 | 3 | [EDA Tools](3-EDA-Tools/README.md) | Electronic Design Automation tools |
 | 4 | [Open Source Projects](4-OpenSource-Projects/README.md) | Community IC design projects |
 |   | [NEORV32](4-OpenSource-Projects/neorv32.md) | 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片 |

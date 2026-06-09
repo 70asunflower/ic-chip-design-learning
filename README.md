@@ -17,10 +17,11 @@
 
 </details>
 
-<details>
+<details open>
 <summary>2-Papers</summary>
 
-_Empty — add your first paper!_
+- [计算机体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md) — 87页研一综述：从通用处理器到 LLM/Tansformer 加速、Chiplet、神经形态/量子/光子，附PDF
+- [📄 Papers Index](0-Resources/2-Papers/README.md)
 
 </details>
 
@@ -274,3 +275,4 @@ ic-chip-design-learning/
 | 2026-05-29 | Added NEORV32 RISC-V SoC 开源项目 |
 | 2026-05-29 | Added XUANTIE-RV 玄铁 RISC-V 开源生态 |
 | 2026-06-05 | Added 光通信器件原理科普 — 从能级跃迁到硅光芯片 |
+| 2026-06-09 | Added 计算机体系结构「森林导览」— 87页综述，附PDF |
