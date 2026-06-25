@@ -14,4 +14,5 @@
 | 5 | [Courses & Tutorials](5-Courses-Tutorials/README.md) | Online courses and learning materials |
 |   | [CUDA Programming Guide](5-Courses-Tutorials/cuda-programming-guide.md) | NVIDIA 官方 GPU 并行编程模型文档 |
 |   | [光通信器件原理](5-Courses-Tutorials/optical-communication-device-principles.md) | 从能级跃迁到硅光芯片：调制器/激光器/探测器入门科普 |
+|   | [Modern GPU Programming For MLSys](5-Courses-Tutorials/mlc-modern-gpu-programming.md) | Blackwell GPU Kernel 实战（TMA/Warp Specialization/FlashAttention 4） |
 | 6 | [Industry Standards](6-Industry-Standards/README.md) | Specifications and standards documents |
