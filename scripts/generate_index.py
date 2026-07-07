@@ -15,13 +15,13 @@ import json
 import datetime
 import pathlib
 
-REPO = "70asunflower/ai-learning-journey"
+REPO = "70asunflower/ic-chip-design-learning"
 BRANCH = "master"  # default branch of this repo
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 SIBLINGS = [
+    {"name": "AI Learning", "url": "https://70asunflower.github.io/ai-learning-journey/"},
     {"name": "Embodied AI", "url": "https://70asunflower.github.io/embodied-ai-learning/"},
-    {"name": "IC Chip Design", "url": "https://70asunflower.github.io/ic-chip-design-learning/"},
 ]
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
