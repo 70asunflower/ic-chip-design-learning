@@ -44,7 +44,6 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 SIBLINGS = [
     {"name": "AI Learning Journey", "url": "https://70asunflower.github.io/ai-learning-journey/"},
-    {"name": "Embodied AI", "url": "https://70asunflower.github.io/embodied-ai-learning/"},
 ]
 
 TITLE = "IC Chip Design Learning"
