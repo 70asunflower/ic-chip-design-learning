@@ -1,19 +1,45 @@
-# Resource Index
+# Resources Index
 
-| # | Category | Description |
-|---|----------|-------------|
-| 1 | [Books](1-Books/README.md) | IC design textbooks and references |
-|   | [Computer Architecture: A Quantitative Approach](1-Books/README.md) | Hennessy & Patterson 体系结构经典教材 |
-|   | [Linux C编程一站式学习](1-Books/linux-c-programming.md) | C 语言 + Linux 系统编程一站式覆盖 |
-| 2 | [Papers](2-Papers/README.md) | Key academic papers and articles |
-|   | [计算机体系结构「森林导览」](2-Papers/computer-architecture-forest-guide.md) | 87页研一综述：从通用处理器到新兴范式，附PDF |
-| 3 | [EDA Tools](3-EDA-Tools/README.md) | Electronic Design Automation tools |
-| 4 | [Open Source Projects](4-OpenSource-Projects/README.md) | Community IC design projects |
-|   | [NEORV32](4-OpenSource-Projects/neorv32.md) | 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片 |
-|   | [XUANTIE-RV 玄铁](4-OpenSource-Projects/xuantie-rv.md) | 达摩院 RISC-V 开源生态，OpenC910/C906/E906 + wujian100 SoC |
-| 5 | [Courses & Tutorials](5-Courses-Tutorials/README.md) | Online courses and learning materials |
-|   | [CUDA Programming Guide](5-Courses-Tutorials/cuda-programming-guide.md) | NVIDIA 官方 GPU 并行编程模型文档 |
-|   | [光通信器件原理](5-Courses-Tutorials/optical-communication-device-principles.md) | 从能级跃迁到硅光芯片：调制器/激光器/探测器入门科普 |
-|   | [Modern GPU Programming For MLSys](5-Courses-Tutorials/mlc-modern-gpu-programming.md) | Blackwell GPU Kernel 实战（TMA/Warp Specialization/FlashAttention 4） |
-|   | [Branch Education IC 系列](5-Courses-Tutorials/branch-education-ic-series.md) | 3D 动画科普三部曲：EUV 光刻→芯片制造流程→CPU 工作原理 |
-| 6 | [Industry Standards](6-Industry-Standards/README.md) | Specifications and standards documents |
+Quick-lookup index for all collected resources.
+
+## Books
+
+| Resource | Tags | Date |
+|----------|------|------|
+| [Computer Architecture: A Quantitative Approach](1-Books/README.md) | `#book #architecture #textbook #risc-v` | 2026-03-31 |
+| [Linux C编程一站式学习](1-Books/linux-c-programming.md) | `#c #linux #systems-programming #book` | 2026-04-26 |
+
+## Papers
+
+| Resource | Tags | Date |
+|----------|------|------|
+| [计算机体系结构「森林导览」](2-Papers/computer-architecture-forest-guide.md) | `#survey #architecture #paper #accelerator #photonics` | 2026-06-09 |
+| [📄 Papers Index](2-Papers/README.md) | `#index` | 2026-03-31 |
+
+## EDA Tools
+
+_Empty — add your first EDA tool note!_
+
+## Open Source Projects
+
+| Resource | Tags | Date |
+|----------|------|------|
+| [NEORV32](4-OpenSource-Projects/neorv32.md) | `#risc-v #soc #fpga #vhdl #open-source` | 2026-05-29 |
+| [XUANTIE-RV 玄铁](4-OpenSource-Projects/xuantie-rv.md) | `#risc-v #open-source #t-head #soc` | 2026-05-29 |
+
+## Courses & Tutorials
+
+| Resource | Tags | Date |
+|----------|------|------|
+| [CUDA Programming Guide](5-Courses-Tutorials/cuda-programming-guide.md) | `#cuda #nvidia #gpu #parallel-programming` | 2026-04-03 |
+| [光通信器件原理：从能级跃迁到硅光芯片](5-Courses-Tutorials/optical-communication-device-principles.md) | `#photonics #optics #silicon-photonics #ic-manufacturing` | 2026-06-05 |
+| [Modern GPU Programming For MLSys](5-Courses-Tutorials/mlc-modern-gpu-programming.md) | `#gpu #cuda #blackwell #gemm #flash-attention #kernel-optimization #ml-systems` | 2026-06-25 |
+| [Branch Education IC 系列](5-Courses-Tutorials/branch-education-ic-series.md) | `#youtube #animation #cpu #manufacturing #education` | 2026-06-09 |
+
+## Industry Standards
+
+_Empty — add your first industry standard!_
+
+---
+
+_Last updated: 2026-06-25_
