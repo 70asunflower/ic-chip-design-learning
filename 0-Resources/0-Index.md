@@ -36,6 +36,7 @@ _Empty — add your first EDA tool note!_
 | [光通信器件原理：从能级跃迁到硅光芯片](5-Courses-Tutorials/optical-communication-device-principles.md) | `#photonics #optics #silicon-photonics #ic-manufacturing` | 2026-06-05 |
 | [Modern GPU Programming For MLSys](5-Courses-Tutorials/mlc-modern-gpu-programming.md) | `#gpu #cuda #blackwell #gemm #flash-attention #kernel-optimization #ml-systems` | 2026-06-25 |
 | [Branch Education IC 系列](5-Courses-Tutorials/branch-education-ic-series.md) | `#youtube #animation #cpu #manufacturing #education` | 2026-06-09 |
+| [一生一芯（One Student One Chip）](5-Courses-Tutorials/ysyx-one-student-one-chip.md) | `#risc-v #cpu-design #rtl #tapeout #open-source-eda #computer-architecture #education` | 2026-07-28 |
 
 ## Industry Standards
 

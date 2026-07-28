@@ -48,6 +48,7 @@ _Empty — add your first EDA tool note!_
 - [光通信器件原理：从能级跃迁到硅光芯片](0-Resources/5-Courses-Tutorials/optical-communication-device-principles.md) — 光通信入门科普：调制器/激光器/探测器，连接 IC 制造与光子学
 - [Modern GPU Programming For MLSys](0-Resources/5-Courses-Tutorials/mlc-modern-gpu-programming.md) — MLC.ai/CMU 出品：Blackwell GPU Kernel 实战（TMA/Warp Spec/FlashAttention 4）
 - [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) — 3D 动画科普：光刻→芯片制造→CPU 架构
+- [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) — 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片
 
 </details>
 
@@ -270,6 +271,7 @@ ic-chip-design-learning/
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+| 2026-07-28 | Added 一生一芯（One Student One Chip）— 中科院计算所 RISC-V 处理器芯片全流程设计培养计划 |
 | 2026-07-02 | Added Bits on Chips（芯片上的比特，第3版）— Veendrick 著，Springer 集成电路通识导论 |
 | 2026-03-31 | Repository init, directory structure, wiki nav|
 | 2026-03-31 | Added note template                           |
