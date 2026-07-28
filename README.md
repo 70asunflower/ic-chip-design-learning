@@ -14,6 +14,7 @@
 
 - [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/README.md) — Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
 - [Linux C编程一站式学习](0-Resources/1-Books/linux-c-programming.md) — C 语言 + Linux 系统编程一站式覆盖（宋劲杉）
+- [Bits on Chips（芯片上的比特，第3版）](0-Resources/1-Books/bits-on-chips-veendrick.md) — Veendrick 著，Springer 集成电路通识导论，覆盖设计/制造/应用全链条（含 2nm 节点）
 
 </details>
 
@@ -269,6 +270,7 @@ ic-chip-design-learning/
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+| 2026-07-02 | Added Bits on Chips（芯片上的比特，第3版）— Veendrick 著，Springer 集成电路通识导论 |
 | 2026-03-31 | Repository init, directory structure, wiki nav|
 | 2026-03-31 | Added note template                           |
 | 2026-04-03 | Added CUDA Programming Guide                  |
