@@ -408,7 +408,7 @@ const tagCounts = {};
 DATA.categories.forEach(c => c.items.forEach(it => it.tags.forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; })));
 const sortedTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a] || a.localeCompare(b));
 
-const CAT_COLORS = { "books": "#2f6df6", "papers": "#d9730d", "eda tools": "#0a7d3b", "open source projects": "#8250df", "courses tutorials": "#cf222e", "industry standards": "#1a7f64", "videos": "#bf3989" };
+const CAT_COLORS = { "books": "#2f6df6", "papers": "#d9730d", "eda tools": "#0a7d3b", "opensource projects": "#8250df", "courses tutorials": "#cf222e", "industry standards": "#1a7f64", "videos": "#bf3989" };
 function catColor(name) { return CAT_COLORS[(name || "").toLowerCase()] || "var(--accent)"; }
 
 const app = document.getElementById("app");
@@ -484,8 +484,9 @@ function renderTags() {
     } else {
       el.onclick = () => {
         const t = el.dataset.t;
-        if (state.tags.has(t)) state.tags.delete(t); else state.tags.add(t);
-        renderTags(); render();
+        if (state.tags.has(t)) { state.tags.delete(t); el.classList.remove("active"); }
+        else { state.tags.add(t); el.classList.add("active"); }
+        render();
       };
     }
   });
