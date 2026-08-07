@@ -350,7 +350,7 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
     <div class="h-top">
       <div>
         <h1>__TITLE__ · Resource Index</h1>
-        <div class="sub">个人 AI 学习路径 · 精选资源 / 笔记 / 项目实战</div>
+        <div class="sub">个人 IC 芯片设计学习路径 · 精选资源 / 笔记 / 项目实战</div>
       </div>
       <a class="live" href="__LIVE__" target="_blank" rel="noopener">仓库 README</a>
       <span class="spacer"></span>
@@ -408,7 +408,7 @@ const tagCounts = {};
 DATA.categories.forEach(c => c.items.forEach(it => it.tags.forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; })));
 const sortedTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a] || a.localeCompare(b));
 
-const CAT_COLORS = { "books": "#2f6df6", "papers": "#d9730d", "eda tools": "#0a7d3b", "open source projects": "#8250df", "courses tutorials": "#cf222e", "industry standards": "#1a7f64" };
+const CAT_COLORS = { "books": "#2f6df6", "papers": "#d9730d", "eda tools": "#0a7d3b", "open source projects": "#8250df", "courses tutorials": "#cf222e", "industry standards": "#1a7f64", "videos": "#bf3989" };
 function catColor(name) { return CAT_COLORS[(name || "").toLowerCase()] || "var(--accent)"; }
 
 const app = document.getElementById("app");

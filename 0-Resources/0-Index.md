@@ -42,6 +42,13 @@ _Empty — add your first EDA tool note!_
 
 _Empty — add your first industry standard!_
 
+## Videos
+
+| Resource | Tags | Date |
+|----------|------|------|
+| [HBM 原理详解（抖音）](7-Videos/hbm-principles-douyin.md) | `#hbm #memory #dram #high-bandwidth-memory #video #douyin #semiconductor` | 2026-06-26 |
+| [全网最详细的芯片制造全过程（抖音）](7-Videos/chip-manufacturing-process-douyin.md) | `#chip-manufacturing #fabrication #process #semiconductor #video #douyin` | 2026-06-25 |
+
 ---
 
-_Last updated: 2026-06-25_
+_Last updated: 2026-08-01_

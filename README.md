@@ -59,6 +59,14 @@ _Empty — add your first industry standard!_
 
 </details>
 
+<details>
+<summary>7-Videos</summary>
+
+- [HBM 原理详解（抖音）](0-Resources/7-Videos/hbm-principles-douyin.md) — Redknot-乔红：HBM 高带宽存储器原理动画讲解
+- [全网最详细的芯片制造全过程（抖音）](0-Resources/7-Videos/chip-manufacturing-process-douyin.md) — 大黄视界频道：从硅片到成品芯片的完整制造流程
+
+</details>
+
 [📋 Full Resource Index](0-Resources/0-Index.md)
 
 </details>
@@ -204,6 +212,7 @@ ic-chip-design-learning/
 │   ├── 4-OpenSource-Projects/# Open-source chip projects
 │   ├── 5-Courses-Tutorials/  # Online courses & tutorials
 │   └── 6-Industry-Standards/ # AMBA, UCIe, JEDEC, etc.
+│   ├── 7-Videos/             # Video explainers (Douyin/YouTube/etc.)
 ├── 1-Notes/                  # Personal study notes
 │   ├── 1-Digital-Design/    # Combinational/sequential, HDL, microarchitecture
 │   ├── 2-Analog-Design/     # Amplifiers, PLLs, ADCs/DACs, layout
@@ -271,6 +280,7 @@ ic-chip-design-learning/
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+| 2026-08-01 | Added 7-Videos category: HBM 原理详解 / 芯片制造全过程（抖音视频笔记） |
 | 2026-07-28 | Added 一生一芯（One Student One Chip）— 中科院计算所 RISC-V 处理器芯片全流程设计培养计划 |
 | 2026-07-02 | Added Bits on Chips（芯片上的比特，第3版）— Veendrick 著，Springer 集成电路通识导论 |
 | 2026-03-31 | Repository init, directory structure, wiki nav|
