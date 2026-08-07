@@ -21,28 +21,18 @@ import subprocess
 
 
 def generated_date() -> str:
-    """Stable 'last updated' date from the latest commit touching README/0-Resources.
+    """Stable 'last updated' date from the 0-Index.md `_Last updated` footer.
 
-    Uses git history instead of today() so regeneration commits are idempotent and
-    the GitHub Actions workflow does not loop forever.
+    The footer is hand-maintained and changes together with resource content,
+    so reading it (instead of git history or today()) makes regeneration
+    byte-identical no matter when/where it runs (local before commit, CI after
+    commit). This is what keeps the CI auto-commit loop-free and noise-free.
     """
     try:
-        out = subprocess.run(
-            ["git", "log", "-1", "--format=%cd", "--date=short",
-             "--", "README.md", "0-Resources"],
-            cwd=str(pathlib.Path(__file__).resolve().parent.parent),
-            capture_output=True, text=True, timeout=20)
-        if out.returncode == 0 and out.stdout.strip():
-            return out.stdout.strip()
-    except Exception:
-        pass
-    try:
-        head = subprocess.run(
-            ["git", "log", "-1", "--format=%cd", "--date=short"],
-            cwd=str(pathlib.Path(__file__).resolve().parent.parent),
-            capture_output=True, text=True, timeout=20)
-        if head.returncode == 0 and head.stdout.strip():
-            return head.stdout.strip()
+        idx = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
+        m = re.search(r"_Last updated:\s*(\d{4}-\d{2}-\d{2})_", idx)
+        if m:
+            return m.group(1)
     except Exception:
         pass
     return datetime.date.today().isoformat()
@@ -97,7 +87,7 @@ for line in index_md.splitlines():
     if not lm:
         continue
     path = normalize(lm.group(1))
-    tags = re.findall(r"#([\w\-]+)", cells[1])
+    tags = re.findall(r"#([\w\-.]+)", cells[1])
     tags_by_path[path] = tags
     if len(cells) >= 3:
         dates_by_path[path] = cells[2].strip()
@@ -173,7 +163,7 @@ HTML = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
-  try { document.documentElement.setAttribute("data-theme", localStorage.getItem("alj-theme") || "light"); } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+  try { var _t = localStorage.getItem("alj-theme"); if (!_t) { _t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", _t); } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
 </script>
 <title>__TITLE__ · Resource Index</title>
 <meta name="description" content="__TITLE__ — curated learning resources index (books, papers, tutorials, tools).">
@@ -213,7 +203,7 @@ html{color-scheme:light dark}
 *::-webkit-scrollbar-thumb:hover{background:var(--scrollbar-thumb-hover)}
 *::-webkit-scrollbar-corner{background:transparent}
 *{scrollbar-width:thin;scrollbar-color:var(--scrollbar-thumb) var(--scrollbar-track)}
-header{border-bottom:1px solid var(--border);background:var(--panel)}
+header{border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:30}
 .wrap{max-width:900px;margin:0 auto;padding:0 24px}
 .h-top{display:flex;align-items:center;gap:14px;padding:22px 0 16px;flex-wrap:wrap}
 .h-top h1{font-size:19px;margin:0;font-weight:600;letter-spacing:.2px}
@@ -228,9 +218,24 @@ header{border-bottom:1px solid var(--border);background:var(--panel)}
 #themeBtn{cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text);
   border-radius:6px;padding:6px 11px;font-size:14px;transition:.2s}
 #themeBtn:hover{border-color:var(--accent);color:var(--accent)}
-#search{width:100%;padding:10px 13px;border-radius:8px;border:1px solid var(--border);
+#search{flex:1;min-width:200px;padding:10px 13px;border-radius:8px;border:1px solid var(--border);
   background:var(--card);color:var(--text);font-size:14.5px;outline:none;transition:.2s}
 #search:focus{border-color:var(--accent)}
+.search-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sortbox{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.sort-label{font-size:12px}
+.sortbtn{cursor:pointer;font-size:12px;padding:5px 11px;border-radius:6px;background:transparent;color:var(--muted);border:1px solid var(--border);transition:.15s}
+.sortbtn:hover{color:var(--text)}
+.sortbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tagbar-row{display:flex;align-items:flex-start;gap:10px}
+.tagmode{font-size:12px;padding:4px 10px;border-radius:6px;background:transparent;color:var(--muted);border:1px solid var(--border);cursor:pointer;transition:.15s;white-space:nowrap;flex-shrink:0}
+.tagmode:hover{color:var(--text)}
+.result-count{font-size:12.5px;color:var(--muted);padding:8px 0 0}
+.result-count b{color:var(--text)}
+.sub{font-size:13px;color:var(--muted);margin-top:3px}
+.stats{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);padding:0 0 12px}
+.stats b{color:var(--text);font-weight:600;margin-right:3px}
+.chip.more{color:var(--accent);border-style:dashed}
 #tagbar{display:flex;flex-wrap:wrap;gap:7px;padding:12px 0 16px;
   max-height:118px;overflow-y:auto;transition:max-height .3s ease}
 #tagbar.collapsed{max-height:0;overflow:hidden;padding:0}
@@ -241,12 +246,12 @@ header{border-bottom:1px solid var(--border);background:var(--panel)}
 main{padding:6px 0 60px}
 .sec{margin:30px 0 10px}
 .sec h2{font-size:12.5px;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);
-  margin:0 0 16px;display:flex;align-items:center;gap:9px;font-weight:600}
+  margin:0 0 16px;display:flex;align-items:center;gap:9px;font-weight:600;border-left:3px solid var(--cat,var(--accent));padding-left:10px}
 .sec h2 .cnt{font-size:11px;background:var(--card);color:var(--muted);padding:1px 8px;border-radius:6px;border:1px solid var(--border);letter-spacing:0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:15px 16px;
-  transition:.15s;display:flex;flex-direction:column;gap:8px;min-height:92px}
-.card:hover{border-color:var(--accent);background:var(--card-hover)}
+.card{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--cat,var(--border));border-radius:10px;padding:15px 16px;
+  transition:.15s;display:flex;flex-direction:column;gap:8px;min-height:92px;position:relative}
+.card:hover{border-color:var(--accent);background:var(--card-hover);transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.10)}
 .card .t{font-weight:600;font-size:15px;display:flex;align-items:center;gap:7px}
 .card .t .arrow{color:var(--accent);opacity:0;transition:.15s;font-size:12px;margin-left:auto}
 .card:hover .t .arrow{opacity:1}
@@ -255,7 +260,21 @@ main{padding:6px 0 60px}
 .card .tag{font-size:11px;color:var(--accent);background:transparent;border:1px solid var(--border);padding:1px 8px;border-radius:6px}
 .card .idx{font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--accent);
   border:1px solid var(--accent);padding:1px 7px;border-radius:5px}
-.empty{text-align:center;color:var(--muted);padding:50px 0;font-size:15px}
+.card .ext{font-size:10px;font-weight:600;color:var(--muted);
+  border:1px solid var(--border);padding:1px 6px;border-radius:5px;background:transparent}
+.card:hover .ext{color:var(--accent);border-color:var(--accent)}
+/* reader copy-link button */
+.copy-link{font-size:12px;color:var(--accent);border:1px solid var(--border);background:transparent;
+  border-radius:6px;padding:5px 11px;cursor:pointer;transition:.15s;margin-left:auto}
+.copy-link:hover{border-color:var(--accent)}
+.copy-link.done{color:var(--tk-str);border-color:var(--tk-str)}
+/* back to top */
+#backTop{position:fixed;right:22px;bottom:22px;z-index:40;width:38px;height:38px;border-radius:9px;
+  border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:16px;
+  cursor:pointer;opacity:0;pointer-events:none;transition:.2s;line-height:1}
+#backTop.show{opacity:1;pointer-events:auto}
+#backTop:hover{border-color:var(--accent);color:var(--accent)}
+.empty{text-align:center;color:var(--muted);padding:50px 0;font-size:15px;line-height:1.8}
 footer{border-top:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center;padding:24px 0 44px}
 footer code{background:var(--card);padding:2px 7px;border-radius:5px;color:var(--text);border:1px solid var(--border)}
 
@@ -329,14 +348,30 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
 <header>
   <div class="wrap">
     <div class="h-top">
-      <h1>__TITLE__ · Resource Index</h1>
+      <div>
+        <h1>__TITLE__ · Resource Index</h1>
+        <div class="sub">个人 AI 学习路径 · 精选资源 / 笔记 / 项目实战</div>
+      </div>
       <a class="live" href="__LIVE__" target="_blank" rel="noopener">仓库 README</a>
       <span class="spacer"></span>
       <button id="themeBtn" title="切换主题">◐</button>
     </div>
+    <div class="stats" id="stats"></div>
     <div class="sibnav"><span class="sib-label">姊妹仓库</span>__SIBLINGS__</div>
-    <input id="search" type="text" placeholder="搜索资源 / 描述 / 标签…" autocomplete="off">
-    <div id="tagbar"></div>
+    <div class="search-row">
+      <input id="search" type="text" placeholder="搜索资源 / 描述 / 标签…" autocomplete="off">
+      <div class="sortbox">
+        <span class="sort-label">排序</span>
+        <button class="sortbtn active" data-sort="default" type="button">默认</button>
+        <button class="sortbtn" data-sort="date" type="button">日期</button>
+        <button class="sortbtn" data-sort="name" type="button">名称</button>
+      </div>
+    </div>
+    <div class="tagbar-row">
+      <button id="tagMode" class="tagmode" type="button" title="切换标签匹配方式">匹配：任一</button>
+      <div id="tagbar"></div>
+    </div>
+    <div class="result-count" id="resultCount" style="display:none"></div>
   </div>
 </header>
 <div id="filewarn">⚠️ 你正在以 <code>file://</code> 方式本地打开此页面，阅读器无法读取本地 .md 文件。请在本仓库目录运行 <code>python -m http.server 8000</code> 后访问 <a href="http://localhost:8000/">http://localhost:8000/</a>，或打开 <a href="__PAGES_URL__" target="_blank" rel="noopener">GitHub Pages 在线版 ↗</a>。（直接点击资源会在新标签页打开 GitHub 渲染版）</div>
@@ -354,21 +389,27 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
   <div class="reader-bar">
     <button class="x" id="readerX" title="关闭">×</button>
     <span class="ttl" id="readerTitle"></span>
+    <button class="copy-link" id="readerCopy" title="复制当前资源链接" type="button">复制链接</button>
     <a class="gh" id="readerGh" href="#" target="_blank" rel="noopener">在 GitHub 查看 ↗</a>
   </div>
   <div class="content" id="readerContent"></div>
 </div>
 
+<button id="backTop" title="回到顶部" type="button">↑</button>
+
 <script>
 const DATA = __DATA__;
 const LIVE = "__LIVE__";
 const PAGES = "__PAGES_URL__";
-const state = { q: "", tags: new Set() };
+const state = { q: "", tags: new Set(), sort: "default", tagMode: "or" };
 function isFileProtocol() { return location.protocol === "file:"; }
 
-const allTags = new Set();
-DATA.categories.forEach(c => c.items.forEach(it => it.tags.forEach(t => allTags.add(t))));
-const sortedTags = [...allTags].sort();
+const tagCounts = {};
+DATA.categories.forEach(c => c.items.forEach(it => it.tags.forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; })));
+const sortedTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a] || a.localeCompare(b));
+
+const CAT_COLORS = { "books": "#2f6df6", "papers": "#d9730d", "eda tools": "#0a7d3b", "open source projects": "#8250df", "courses tutorials": "#cf222e", "industry standards": "#1a7f64" };
+function catColor(name) { return CAT_COLORS[(name || "").toLowerCase()] || "var(--accent)"; }
 
 const app = document.getElementById("app");
 const tagbar = document.getElementById("tagbar");
@@ -385,19 +426,26 @@ const NAV_ITEMS = [];
 DATA.categories.forEach(c => c.items.forEach(it => { if (!it.external) NAV_ITEMS.push(it); }));
 let currentPath = "";
 
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+
 function tagChips(tags) {
   if (!tags.length) return "";
   return '<div class="tags">' + tags.map(t =>
-    `<span class="tag">#${t}</span>`).join("") + "</div>";
+    `<span class="tag">#${esc(t)}</span>`).join("") + "</div>";
 }
 
-function cardHTML(it) {
+function cardHTML(it, cat) {
   const idx = it.index ? '<span class="idx">INDEX</span>' : "";
-  const desc = it.desc ? `<div class="d">${it.desc}</div>` : "";
-  const date = it.date ? `<div class="date">📅 ${it.date}</div>` : "";
+  const extBadge = it.external ? '<span class="ext" title="外部链接，新窗口打开">EXT</span>' : "";
+  const desc = it.desc ? `<div class="d">${esc(it.desc)}</div>` : "";
+  const date = it.date ? `<div class="date">📅 ${esc(it.date)}</div>` : "";
   const ext = it.external ? ' target="_blank" rel="noopener"' : '';
-  return `<a class="card" href="${it.github}" data-path="${it.path}" data-title="${it.title}" data-gh="${it.github}" data-ext="${it.external ? 1 : 0}"${ext}>
-    <div class="t">${idx}${it.title}<span class="arrow">↗</span></div>
+  return `<a class="card" style="--cat:${esc(cat)}" href="${esc(it.github)}" data-path="${esc(it.path)}" data-title="${esc(it.title)}" data-gh="${esc(it.github)}" data-ext="${it.external ? 1 : 0}"${ext}>
+    <div class="t">${idx}${extBadge}${esc(it.title)}<span class="arrow">↗</span></div>
     ${desc}${date}${tagChips(it.tags)}</a>`;
 }
 
@@ -405,22 +453,41 @@ function visible(it) {
   const q = state.q;
   const txt = (it.title + " " + it.desc + " " + it.tags.join(" ") + " " + (it.github || "")).toLowerCase();
   const okQ = !q || txt.includes(q);
-  const okT = state.tags.size === 0 || it.tags.some(t => state.tags.has(t));
+  const okT = state.tags.size === 0 ||
+    (state.tagMode === "and" ? [...state.tags].every(t => it.tags.includes(t)) : it.tags.some(t => state.tags.has(t)));
   return okQ && okT;
 }
 
+function chipHTML(t) {
+  const active = state.tags.has(t) ? " active" : "";
+  return `<span class="chip${active}" data-t="${esc(t)}">#${esc(t)}</span>`;
+}
 function renderTags() {
   if (sortedTags.length === 0) { tagbar.style.display = "none"; return; }
-  tagbar.innerHTML = sortedTags.map(t => {
-    const active = state.tags.has(t) ? " active" : "";
-    return `<span class="chip${active}" data-t="${t}">#${t}</span>`;
-  }).join("");
+  const N = 24;
+  const top = sortedTags.slice(0, N);
+  const rest = sortedTags.slice(N);
+  let html = top.map(chipHTML).join("");
+  if (rest.length) {
+    html += `<span class="chip more" data-more="1" title="展开全部标签">更多 ${rest.length} ▾</span>`;
+    html += `<span class="tag-rest" style="display:none">${rest.map(chipHTML).join("")}</span>`;
+  }
+  tagbar.innerHTML = html;
   tagbar.querySelectorAll(".chip").forEach(el => {
-    el.onclick = () => {
-      const t = el.dataset.t;
-      if (state.tags.has(t)) state.tags.delete(t); else state.tags.add(t);
-      renderTags(); render();
-    };
+    if (el.dataset.more) {
+      el.onclick = () => {
+        const restEl = tagbar.querySelector(".tag-rest");
+        const open = restEl.style.display !== "none";
+        restEl.style.display = open ? "none" : "inline";
+        el.textContent = open ? `更多 ${rest.length} ▾` : "收起 ▴";
+      };
+    } else {
+      el.onclick = () => {
+        const t = el.dataset.t;
+        if (state.tags.has(t)) state.tags.delete(t); else state.tags.add(t);
+        renderTags(); render();
+      };
+    }
   });
 }
 
@@ -428,16 +495,24 @@ function render() {
   let html = "";
   let total = 0;
   DATA.categories.forEach(c => {
-    const items = c.items.filter(visible);
+    let items = c.items.filter(visible);
+    if (state.sort === "date") items = items.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    else if (state.sort === "name") items = items.slice().sort((a, b) => a.title.localeCompare(b.title));
     if (!items.length) return;
     total += items.length;
-    html += `<section class="sec"><h2>${c.name}<span class="cnt">${items.length}</span></h2>
-      <div class="grid">${items.map(cardHTML).join("")}</div></section>`;
+    html += `<section class="sec" style="--cat:${catColor(c.name)}"><h2>${esc(c.name)}<span class="cnt">${items.length}</span></h2>
+      <div class="grid">${items.map(it => cardHTML(it, catColor(c.name))).join("")}</div></section>`;
   });
   app.innerHTML = html;
   empty.style.display = total ? "none" : "block";
+  empty.innerHTML = total ? "" : "没有匹配的资源 🔍<br>试试减少筛选标签、切换「匹配：全部」，或清空搜索";
   if (state.q) { tagbar.classList.add("collapsed"); }
   else { tagbar.classList.remove("collapsed"); }
+  const rc = document.getElementById("resultCount");
+  if (rc) {
+    if (state.q || state.tags.size) { rc.style.display = "block"; rc.innerHTML = `找到 <b>${total}</b> 条结果`; }
+    else rc.style.display = "none";
+  }
   search.placeholder = state.q
     ? `搜索: "${state.q}" — 找到 ${total} 条`
     : "搜索资源 / 描述 / 标签…";
@@ -550,6 +625,39 @@ function closeReader() {
   else { reader.classList.remove("open"); document.body.style.overflow = ""; }
 }
 readerX.addEventListener("click", closeReader);
+
+/* copy deep link of the current resource */
+const readerCopy = document.getElementById("readerCopy");
+function copyCurrentLink() {
+  if (!currentPath) return;
+  const link = location.origin + location.pathname +
+    "#view/" + encodeURIComponent(currentPath) + "|" + encodeURIComponent(readerTitle.textContent || "");
+  const done = () => {
+    readerCopy.textContent = "已复制 ✓";
+    readerCopy.classList.add("done");
+    setTimeout(() => { readerCopy.textContent = "复制链接"; readerCopy.classList.remove("done"); }, 1400);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(link).then(done).catch(() => { fallbackCopy(link); done(); });
+  } else { fallbackCopy(link); done(); }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+}
+readerCopy.addEventListener("click", copyCurrentLink);
+
+/* back to top */
+const backTop = document.getElementById("backTop");
+window.addEventListener("scroll", () => {
+  backTop.classList.toggle("show", window.scrollY > 600);
+}, { passive: true });
+backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 readerContent.addEventListener("scroll", () => {
   const max = readerContent.scrollHeight - readerContent.clientHeight;
   readerProgress.style.width = (max > 0 ? (readerContent.scrollTop / max) * 100 : 0) + "%";
@@ -593,14 +701,28 @@ const themeBtn = document.getElementById("themeBtn");
 function applyTheme(t) {
   document.documentElement.setAttribute("data-theme", t);
   try { localStorage.setItem("alj-theme", t); } catch (e) {}
+  if (themeBtn) { themeBtn.textContent = t === "dark" ? "🌙" : "☀️"; themeBtn.title = t === "dark" ? "切换到亮色" : "切换到暗色"; }
 }
 themeBtn.onclick = () => {
   const cur = document.documentElement.getAttribute("data-theme");
   applyTheme(cur === "dark" ? "light" : "dark");
 };
+document.querySelectorAll(".sortbtn").forEach(b => {
+  b.onclick = () => {
+    state.sort = b.dataset.sort;
+    document.querySelectorAll(".sortbtn").forEach(x => x.classList.toggle("active", x === b));
+    render();
+  };
+});
+const tagModeBtn = document.getElementById("tagMode");
+if (tagModeBtn) tagModeBtn.onclick = () => {
+  state.tagMode = state.tagMode === "or" ? "and" : "or";
+  tagModeBtn.textContent = "匹配：" + (state.tagMode === "or" ? "任一" : "全部");
+  render();
+};
 (function () {
   let t = "light";
-  try { t = localStorage.getItem("alj-theme") || "light"; } catch (e) {}
+  try { t = localStorage.getItem("alj-theme") || (document.documentElement.getAttribute("data-theme")) || "light"; } catch (e) {}
   applyTheme(t);
 })();
 
@@ -613,6 +735,7 @@ window.addEventListener("keydown", e => {
   }
   if (!reader.classList.contains("open")) return;
   if (/^(INPUT|TEXTAREA)$/.test(e.target.tagName) || e.target.isContentEditable) return;
+  if (e.key === "c" || e.key === "C") { copyCurrentLink(); return; }
   if (e.key === "j" || e.key === "ArrowRight") {
     const i = NAV_ITEMS.findIndex(it => it.path === currentPath);
     if (i >= 0 && i < NAV_ITEMS.length - 1) { e.preventDefault(); openReader(NAV_ITEMS[i + 1].path, NAV_ITEMS[i + 1].title); }
@@ -623,6 +746,11 @@ window.addEventListener("keydown", e => {
 });
 
 if (isFileProtocol()) { const fw = document.getElementById("filewarn"); if (fw) fw.style.display = "block"; }
+const statsEl = document.getElementById("stats");
+if (statsEl) {
+  const totalItems = DATA.categories.reduce((s, c) => s + c.items.length, 0);
+  statsEl.innerHTML = `<span><b>${totalItems}</b> 资源</span><span><b>${sortedTags.length}</b> 标签</span><span><b>${DATA.generated}</b> 更新</span>`;
+}
 renderTags();
 render();
 </script>
@@ -642,7 +770,7 @@ html = (HTML
         .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
 
 out = ROOT / "index.html"
-out.write_text(html, encoding="utf-8")
+out.write_text(html, encoding="utf-8", newline="\n")
 n_items = sum(len(c["items"]) for c in categories)
 n_tags = len({t for c in categories for it in c["items"] for t in it["tags"]})
 print(f"Wrote {out} — {len(categories)} categories, {n_items} items, {n_tags} tags")
