@@ -49,6 +49,7 @@ _Empty — add your first EDA tool note!_
 - [Modern GPU Programming For MLSys](0-Resources/5-Courses-Tutorials/mlc-modern-gpu-programming.md) — MLC.ai/CMU 出品：Blackwell GPU Kernel 实战（TMA/Warp Spec/FlashAttention 4）
 - [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) — 3D 动画科普：光刻→芯片制造→CPU 架构
 - [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) — 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片
+- [RISC-V Vector Primer (RVV 1.0 指南)](0-Resources/5-Courses-Tutorials/riscv-vector-primer.md) — 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension
 
 </details>
 
@@ -280,6 +281,7 @@ ic-chip-design-learning/
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+| 2026-08-23 | Added RISC-V Vector Primer (RVV 1.0 指南) — 架构师/编译器/边缘 AI 开发者向 RVV 实践指南，含 Matrix Extension |
 | 2026-08-01 | Added 7-Videos category: HBM 原理详解 / 芯片制造全过程（抖音视频笔记） |
 | 2026-07-28 | Added 一生一芯（One Student One Chip）— 中科院计算所 RISC-V 处理器芯片全流程设计培养计划 |
 | 2026-07-02 | Added Bits on Chips（芯片上的比特，第3版）— Veendrick 著，Springer 集成电路通识导论 |

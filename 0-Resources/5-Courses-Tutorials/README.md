@@ -7,3 +7,4 @@
 | [Modern GPU Programming For MLSys](mlc-modern-gpu-programming.md) — MLC.ai/CMU 出品：Blackwell GPU Kernel 实战（TMA/Warp Spec/FlashAttention 4） | `#gpu #blackwell #gemm #flash-attention #kernel-optimization` | 2026-06-25 |
 | [Branch Education IC 系列](branch-education-ic-series.md) — 3D 动画科普三部曲：从 EUV 光刻→芯片制造→CPU 架构 | `#branch-education #chip-manufacturing #lithography #cpu-architecture #semiconductor #educational-video` | 2026-06-29 |
 | [一生一芯（One Student One Chip）](ysyx-one-student-one-chip.md) — 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片 | `#risc-v #cpu-design #rtl #tapeout #open-source-eda #computer-architecture #education` | 2026-07-28 |
+| [RISC-V Vector Primer (RVV 1.0 指南)](riscv-vector-primer.md) — 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension | `#risc-v #rvv #vector-processor #matrix-extension #compiler #gemm #architecture` | 2026-08-23 |

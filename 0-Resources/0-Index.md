@@ -37,6 +37,7 @@ _Empty — add your first EDA tool note!_
 | [Modern GPU Programming For MLSys](5-Courses-Tutorials/mlc-modern-gpu-programming.md) | `#gpu #cuda #blackwell #gemm #flash-attention #kernel-optimization #ml-systems` | 2026-06-25 |
 | [Branch Education IC 系列](5-Courses-Tutorials/branch-education-ic-series.md) | `#youtube #animation #cpu #manufacturing #education` | 2026-06-09 |
 | [一生一芯（One Student One Chip）](5-Courses-Tutorials/ysyx-one-student-one-chip.md) | `#risc-v #cpu-design #rtl #tapeout #open-source-eda #computer-architecture #education` | 2026-07-28 |
+| [RISC-V Vector Primer (RVV 1.0 指南)](5-Courses-Tutorials/riscv-vector-primer.md) | `#risc-v #rvv #vector-processor #matrix-extension #compiler #gemm #architecture` | 2026-08-23 |
 
 ## Industry Standards
 
@@ -51,4 +52,4 @@ _Empty — add your first industry standard!_
 
 ---
 
-_Last updated: 2026-08-01_
+_Last updated: 2026-08-23_
