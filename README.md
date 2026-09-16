@@ -38,6 +38,7 @@ _Empty — add your first EDA tool note!_
 
 - [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) — 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片
 - [XUANTIE-RV 玄铁](0-Resources/4-OpenSource-Projects/xuantie-rv.md) — 达摩院 RISC-V 开源生态，OpenC910/C906/E906 + wujian100 SoC
+- [nano-kpu](0-Resources/4-OpenSource-Projects/nano-kpu.md) — MoonshotAI：Kimi-K3 全流程设计的推理芯片 RTL（KDA 线性注意力 + MLA + MoE，int4），带完整仿真与综合流程
 
 </details>
 
@@ -281,6 +282,7 @@ ic-chip-design-learning/
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+| 2026-09-16 | Added nano-kpu — MoonshotAI/Kimi-K3 设计的推理芯片 RTL（KDA 线性注意力 + NoPE MLA + sigmoid MoE，int4），含 Verilator/yosys/Nangate45 流程 |
 | 2026-08-23 | Added RISC-V Vector Primer (RVV 1.0 指南) — 架构师/编译器/边缘 AI 开发者向 RVV 实践指南，含 Matrix Extension |
 | 2026-08-01 | Added 7-Videos category: HBM 原理详解 / 芯片制造全过程（抖音视频笔记） |
 | 2026-07-28 | Added 一生一芯（One Student One Chip）— 中科院计算所 RISC-V 处理器芯片全流程设计培养计划 |
