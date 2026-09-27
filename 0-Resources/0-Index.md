@@ -28,6 +28,7 @@ _Empty — add your first EDA tool note!_
 | [NEORV32](4-OpenSource-Projects/neorv32.md) | `#risc-v #soc #fpga #vhdl #open-source` | 2026-05-29 |
 | [XUANTIE-RV 玄铁](4-OpenSource-Projects/xuantie-rv.md) | `#risc-v #open-source #t-head #soc` | 2026-05-29 |
 | [nano-kpu](4-OpenSource-Projects/nano-kpu.md) | `#rtl #inference-chip #accelerator #moe #mla #linear-attention #int4 #verilator #yosys #ai-designed` | 2026-09-16 |
+| [HiEq · Layout 裸片图库](4-OpenSource-Projects/hieq-dieshot-gallery.md) | `#dieshot #layout #chip-images #intel #amd #apple-silicon #nvidia #hisilicon #process-node #reference` | 2026-09-27 |
 
 ## Courses & Tutorials
 
@@ -53,4 +54,4 @@ _Empty — add your first industry standard!_
 
 ---
 
-_Last updated: 2026-09-16_
+_Last updated: 2026-09-27_
