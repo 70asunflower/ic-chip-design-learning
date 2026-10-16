@@ -9,6 +9,7 @@ Quick-lookup index for all collected resources.
 | [Computer Architecture: A Quantitative Approach](1-Books/README.md) | `#book #architecture #textbook #risc-v` | 2026-03-31 |
 | [Linux C编程一站式学习](1-Books/linux-c-programming.md) | `#c #linux #systems-programming #book` | 2026-04-26 |
 | [Bits on Chips（芯片上的比特，第3版）](1-Books/bits-on-chips-veendrick.md) | `#微电子 #集成电路 #芯片 #半导体 #cmos #教材 #pdf` | 2026-07-02 |
+| [半導體製造概論](1-Books/semiconductor-manufacturing-introduction.md) | `#semiconductor-manufacturing #fab #process-flow #cmos #lithography #etch #thin-film #cmp #packaging #test #textbook #chinese #beginner` | 2026-10-16 |
 
 ## Papers
 
@@ -54,4 +55,4 @@ _Empty — add your first industry standard!_
 
 ---
 
-_Last updated: 2026-09-27_
+_Last updated: 2026-10-16_

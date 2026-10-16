@@ -15,6 +15,7 @@
 - [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/README.md) — Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
 - [Linux C编程一站式学习](0-Resources/1-Books/linux-c-programming.md) — C 语言 + Linux 系统编程一站式覆盖（宋劲杉）
 - [Bits on Chips（芯片上的比特，第3版）](0-Resources/1-Books/bits-on-chips-veendrick.md) — Veendrick 著，Springer 集成电路通识导论，覆盖设计/制造/应用全链条（含 2nm 节点）
+- [半導體製造概論](0-Resources/1-Books/semiconductor-manufacturing-introduction.md) — 913★ 开放教材：沙子→晶圆→制程→封测全流程，24 章 + 术语框/实务框，零基础可读，四语言
 
 </details>
 
@@ -283,6 +284,7 @@ ic-chip-design-learning/
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+| 2026-10-16 | Added 半導體製造概論 — chenwei810 913★ 制造全流程开放教材（24 章 + 术语/实务框，四语言） |
 | 2026-09-27 | Added HiEq · Layout 裸片图库 — 222 张处理器 die shot（25 家厂商、标注工艺节点），在线浏览与原图下载 |
 | 2026-09-16 | Added nano-kpu — MoonshotAI/Kimi-K3 设计的推理芯片 RTL（KDA 线性注意力 + NoPE MLA + sigmoid MoE，int4），含 Verilator/yosys/Nangate45 流程 |
 | 2026-08-23 | Added RISC-V Vector Primer (RVV 1.0 指南) — 架构师/编译器/边缘 AI 开发者向 RVV 实践指南，含 Matrix Extension |
