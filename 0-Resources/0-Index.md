@@ -20,7 +20,9 @@ Quick-lookup index for all collected resources.
 
 ## EDA Tools
 
-_Empty — add your first EDA tool note!_
+| Resource | Tags | Date |
+|----------|------|------|
+| [wave-mcp](3-EDA-Tools/wave-mcp.md) | `#verification #waveform #mcp #ai-agent #fst #vcd #fsdb #pyslang #x-state #debug #tencent #open-source` | 2026-10-31 |
 
 ## Open Source Projects
 
@@ -55,4 +57,4 @@ _Empty — add your first industry standard!_
 
 ---
 
-_Last updated: 2026-10-16_
+_Last updated: 2026-10-31_

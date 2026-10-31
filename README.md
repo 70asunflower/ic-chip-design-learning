@@ -30,7 +30,7 @@
 <details>
 <summary>3-EDA-Tools</summary>
 
-_Empty — add your first EDA tool note!_
+- [wave-mcp](0-Resources/3-EDA-Tools/wave-mcp.md) — 腾讯开源波形调试 MCP：只读波形 + RTL，给 AI Agent 37 个工具（值/X 态追踪、pass/fail diff、浏览器波形），免 License
 
 </details>
 
@@ -284,6 +284,7 @@ ic-chip-design-learning/
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+| 2026-10-31 | Added wave-mcp — 腾讯开源波形调试 MCP Server（37 工具 / FST 直读 / X 态追踪 / pass-fail diff），填补 3-EDA-Tools 分类 |
 | 2026-10-16 | Added 半導體製造概論 — chenwei810 913★ 制造全流程开放教材（24 章 + 术语/实务框，四语言） |
 | 2026-09-27 | Added HiEq · Layout 裸片图库 — 222 张处理器 die shot（25 家厂商、标注工艺节点），在线浏览与原图下载 |
 | 2026-09-16 | Added nano-kpu — MoonshotAI/Kimi-K3 设计的推理芯片 RTL（KDA 线性注意力 + NoPE MLA + sigmoid MoE，int4），含 Verilator/yosys/Nangate45 流程 |
