@@ -1,5 +1,6 @@
 ---
 title: 全网最详细的芯片制造全过程（抖音）
+short: 芯片制造全过程（视频）
 summary: 大黄视界频道：从硅片到成品芯片的完整制造流程
 source: https://v.douyin.com/PdPM3UJ_Agc/
 date: 2026-06-25

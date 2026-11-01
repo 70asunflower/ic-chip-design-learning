@@ -27,7 +27,7 @@
   <a href="https://70asunflower.github.io/ic-chip-design-learning/">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/roadmap-dark.svg">
-      <img src="assets/roadmap-light.svg" width="900" alt="学习路线图：5 条路径，每条给出「先读」与「接着」">
+      <img src="assets/roadmap-light.svg" width="900" alt="学习地图：按学习顺序分轨列出全部 18 份资源">
     </picture>
   </a>
 </p>
@@ -35,13 +35,46 @@
 <details>
 <summary>文本版（可点击跳转）</summary>
 
-| 我想… | 先读 | 接着 |
-| :--- | :--- | :--- |
-| 零基础认识芯片 | [Bits on Chips](0-Resources/1-Books/bits-on-chips-veendrick.md) — 集成电路通识导论，设计/制造/应用全链条 | [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) 3D 动画看懂光刻与 CPU |
-| 搞懂芯片怎么造 | [半導體製造概論](0-Resources/1-Books/semiconductor-manufacturing-introduction.md) — 沙子→晶圆→制程→封测，24 章 | [芯片制造全过程](0-Resources/7-Videos/chip-manufacturing-process-douyin.md) 视频版走一遍 |
-| 学 RISC-V 处理器设计 | [一生一芯](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) — 全流程培养计划，免费流片 | [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) 读一份完整 VHDL SoC |
-| 做体系结构研究 | [CA: A Quantitative Approach](0-Resources/1-Books/computer-architecture-quantitative-approach.md) — 量化方法圣经 | [体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md) 看清全领域地图 |
-| 设计 AI 加速器 | [Modern GPU Programming](0-Resources/5-Courses-Tutorials/mlc-modern-gpu-programming.md) — 先懂 kernel | [nano-kpu](0-Resources/4-OpenSource-Projects/nano-kpu.md) 再看整颗推理芯片 RTL |
+<!-- BUILD:MAP:START -->
+**1. 认识芯片**
+
+- [Bits on Chips（芯片上的比特，第3版）](0-Resources/1-Books/bits-on-chips-veendrick.md) — Veendrick 著，Springer 集成电路通识导论，覆盖设计/制造/应用全链条（含 2nm 节点）
+- [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) — 3D 动画科普：光刻→芯片制造→CPU 架构
+- [HBM 原理详解（抖音）](0-Resources/7-Videos/hbm-principles-douyin.md) — Redknot-乔红：HBM 高带宽存储器原理动画讲解
+
+**2. 制造与工艺**
+
+- [半導體製造概論](0-Resources/1-Books/semiconductor-manufacturing-introduction.md) — 913★ 开放教材：沙子→晶圆→制程→封测全流程，24 章 + 术语框/实务框，零基础可读，四语言
+- [全网最详细的芯片制造全过程（抖音）](0-Resources/7-Videos/chip-manufacturing-process-douyin.md) — 大黄视界频道：从硅片到成品芯片的完整制造流程
+- [光通信器件原理：从能级跃迁到硅光芯片](0-Resources/5-Courses-Tutorials/optical-communication-device-principles.md) — 光通信入门科普：调制器/激光器/探测器，连接 IC 制造与光子学
+
+**3. 体系结构**
+
+- [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/computer-architecture-quantitative-approach.md) — Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
+- [计算机体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md) — 87页研一综述：从通用处理器到 LLM/Tansformer 加速、Chiplet、神经形态/量子/光子，附PDF
+
+**4. 处理器设计**
+
+- [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) — 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片
+- [RISC-V Vector Primer (RVV 1.0 指南)](0-Resources/5-Courses-Tutorials/riscv-vector-primer.md) — 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension
+- [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) — 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片
+- [XUANTIE-RV 玄铁](0-Resources/4-OpenSource-Projects/xuantie-rv.md) — 达摩院 RISC-V 开源生态，OpenC910/C906/E906 + wujian100 SoC
+
+**5. AI 芯片与 GPU**
+
+- [CUDA Programming Guide](0-Resources/5-Courses-Tutorials/cuda-programming-guide.md) — NVIDIA 官方 GPU 并行编程模型文档
+- [Modern GPU Programming For MLSys](0-Resources/5-Courses-Tutorials/mlc-modern-gpu-programming.md) — MLC.ai/CMU 出品：Blackwell GPU Kernel 实战（TMA/Warp Spec/FlashAttention 4）
+- [nano-kpu](0-Resources/4-OpenSource-Projects/nano-kpu.md) — MoonshotAI：Kimi-K3 全流程设计的推理芯片 RTL（KDA 线性注意力 + MLA + MoE，int4），带完整仿真与综合流程
+
+**6. 验证与工具**
+
+- [wave-mcp](0-Resources/3-EDA-Tools/wave-mcp.md) — 腾讯开源波形调试 MCP：只读波形 + RTL，给 AI Agent 37 个工具（值/X 态追踪、pass/fail diff、浏览器波形），免 License
+- [HiEq · Layout 裸片图库](0-Resources/4-OpenSource-Projects/hieq-dieshot-gallery.md) — 222 张处理器 die shot（25 家厂商、标注工艺节点），在线浏览与原图下载
+
+**7. 周边知识**
+
+- [Linux C编程一站式学习](0-Resources/1-Books/linux-c-programming.md) — C 语言 + Linux 系统编程一站式覆盖（宋劲杉）
+<!-- BUILD:MAP:END -->
 
 </details>
 
@@ -298,11 +331,11 @@ ic-chip-design-learning/
 
 ## Changelog
 
-| Date       | Content                                       |
-|------------|-----------------------------------------------|
 <details>
 <summary>展开完整更新日志</summary>
 
+| Date       | Content                                       |
+|------------|-----------------------------------------------|
 | 2026-10-31 | Added wave-mcp — 腾讯开源波形调试 MCP Server（37 工具 / FST 直读 / X 态追踪 / pass-fail diff），填补 3-EDA-Tools 分类 |
 | 2026-10-16 | Added 半導體製造概論 — chenwei810 913★ 制造全流程开放教材（24 章 + 术语/实务框，四语言） |
 | 2026-09-27 | Added HiEq · Layout 裸片图库 — 222 张处理器 die shot（25 家厂商、标注工艺节点），在线浏览与原图下载 |

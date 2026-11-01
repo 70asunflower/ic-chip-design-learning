@@ -1,5 +1,6 @@
 ---
 title: "Computer Architecture: A Quantitative Approach"
+short: CA: 量化研究方法
 summary: Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
 source: https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1
 date: 2026-03-31

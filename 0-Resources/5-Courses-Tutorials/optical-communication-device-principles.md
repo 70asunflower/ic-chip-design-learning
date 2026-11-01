@@ -1,5 +1,6 @@
 ---
 title: 光通信器件原理：从能级跃迁到硅光芯片
+short: 光通信器件原理
 summary: 光通信入门科普：调制器/激光器/探测器，连接 IC 制造与光子学
 source: https://mp.weixin.qq.com/s/kga1yGRfvUFyM8maORmY3A
 date: 2026-06-05

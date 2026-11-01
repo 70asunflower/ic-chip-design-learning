@@ -1,5 +1,6 @@
 ---
 title: Bits on Chips（芯片上的比特，第3版）
+short: Bits on Chips
 summary: Veendrick 著，Springer 集成电路通识导论，覆盖设计/制造/应用全链条（含 2nm 节点）
 source: https://link.springer.com/content/pdf/10.1007/978-3-032-19350-6.pdf
 date: 2026-07-02

@@ -1,5 +1,6 @@
 ---
 title: 一生一芯（One Student One Chip）
+short: 一生一芯
 summary: 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片
 source: https://ysyx.oscc.cc
 date: 2026-07-28

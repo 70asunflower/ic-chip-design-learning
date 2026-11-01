@@ -1,5 +1,6 @@
 ---
 title: RISC-V Vector Primer (RVV 1.0 指南)
+short: RVV 1.0 指南
 summary: 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension
 source: https://github.com/simplex-micro/riscv-vector-primer
 date: 2026-08-23

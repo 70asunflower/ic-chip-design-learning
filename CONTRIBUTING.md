@@ -96,11 +96,38 @@ git add -A && git commit -m "feat(resources): add <名称>"
   `index.html`、`assets/roadmap-*.svg` 都是生成物，下次构建会被覆盖
 - **不需要 `_Last updated` footer**：`date` 是唯一的日期来源，footer 会漂移
 
-## 改学习路径
+## 改学习地图
 
-路线图的节点标题来自 frontmatter，**路径结构**在 `scripts/build.py` 顶部的
-`ROADMAP` 里（哪条目标 → 先读哪篇 → 接着哪篇）。改完重跑 `build.py`。
-引用不存在的资源会直接构建失败，不会静默少一行。
+`scripts/build.py` 顶部的 `ROADMAP` 决定地图的分轨与顺序：每条轨道是一组资源路径，
+组内顺序就是建议阅读顺序。
+
+```python
+ROADMAP = [
+    {"track": "认识芯片", "items": [
+        "0-Resources/1-Books/bits-on-chips-veendrick.md",
+        ...
+    ]},
+]
+```
+
+**硬性约束（构建期断言，不满足直接报错）**：
+
+- 每个资源必须**恰好出现一次**——漏一个报 `not in ROADMAP`，重复报 `listed twice`
+- 指向不存在的文件报 `ROADMAP points at missing files`
+
+所以地图不可能再"只画一部分资源"。改完重跑 `build.py`。
+
+### 长标题怎么办
+
+药丸宽度有限（约 14 个汉字 / 26 个英文字符）。超了会被截断成 `…`，`build.py`
+运行结束时会列出这些文件并提示加 `short:`：
+
+```yaml
+title: Computer Architecture: A Quantitative Approach
+short: CA: 量化研究方法
+```
+
+`short:` 可选，缺省回退到 `title`。它只影响地图，不影响卡片和表格。
 
 ## 更新 README 预览图
 

@@ -13,7 +13,8 @@
 |------|----------|
 | `0-Resources/0-Index.md` | 整个文件 |
 | `0-Resources/<子目录>/README.md` | `<!-- BUILD:TABLE:START/END -->` 之间 |
-| `README.md` | `<!-- BUILD:NAV:START/END -->` 之间 |
+| `README.md` 资源导航 | `<!-- BUILD:NAV:START/END -->` 之间 |
+| `README.md` 文本版地图 | `<!-- BUILD:MAP:START/END -->` 之间 |
 | `index.html` | 整个文件 |
 | `assets/roadmap-light.svg` / `-dark.svg` | 整个文件 |
 
@@ -24,8 +25,10 @@ python scripts/build.py --check    # 只检查是否最新，有差异 exit 1（
 
 幂等：内容不变时重跑不产生 diff。`index.html` 的 `generated` 日期取资源 `date` 的最大值。
 
-路线图的**结构**（哪条目标 → 先读 → 接着）在 `build.py` 顶部的 `ROADMAP`，
-节点标题从 frontmatter 取；引用不存在的资源会构建失败。
+学习地图的**分轨与顺序**在 `build.py` 顶部的 `ROADMAP`（每条轨道一组资源路径），
+节点标签取 frontmatter 的 `short`（缺省回退 `title`）。
+**每个资源必须恰好出现一次**，否则构建失败——地图不可能漏掉资源。
+标签过长会被截断，构建结束时会提示该给哪个文件加 `short:`。
 
 ### check_consistency.py
 
@@ -61,4 +64,4 @@ python scripts/normalize_tags.py --report   # tag 频次 / 单例 tag
 - `summary` 同时用于网页卡片和子目录表格，40–60 字最佳
 - 不需要 `_Last updated` footer：`date` 是唯一的日期来源
 - 新 tag 前先查 `scripts/tags.json`；确实是新概念才新增，近义词写进别名表
-- 生成块不要手改（`BUILD:NAV` / `BUILD:TABLE` 标记之间）
+- 生成块不要手改（`BUILD:NAV` / `BUILD:TABLE` / `BUILD:MAP` 标记之间）
