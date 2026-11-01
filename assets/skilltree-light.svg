@@ -1,85 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="406" viewBox="0 0 900 406" role="img" aria-label="技术栈树：基础技能在根部，向上分叉到各专业方向" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
-<rect width="900" height="406" rx="14" fill="#fcfcfb" stroke="#e6e6e4"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="418" viewBox="0 0 900 418" role="img" aria-label="技术栈树：基础技能在根部，向上分叉到各专业方向" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
+<rect width="900" height="418" rx="14" fill="#fcfcfb" stroke="#e6e6e4"/>
 <text x="26" y="0" font-size="0" fill="none">.</text>
-<rect x="26.0" y="24" width="114.3" height="125" rx="9" fill="#ffffff" stroke="#2f6df6" stroke-opacity="0.40"/>
+<rect x="26.0" y="24" width="114.3" height="133" rx="9" fill="#ffffff" stroke="#2f6df6" stroke-opacity="0.40"/>
 <rect x="26.0" y="24" width="114.3" height="3.5" rx="1.8" fill="#2f6df6" fill-opacity="0.85"/>
-<text x="83.1" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#1c1c1c">数字设计</text>
-<text x="34.0" y="59" font-size="9.4" fill="#1c1c1c">RTL / HDL</text>
-<text x="34.0" y="69.5" font-size="8.6" fill="#6b6b6b">NEORV32</text>
-<text x="34.0" y="80.0" font-size="8.6" fill="#6b6b6b">XUANTIE-RV 玄铁</text>
-<text x="34.0" y="96.0" font-size="9.4" fill="#1c1c1c">RISC-V 实现</text>
-<text x="34.0" y="106.5" font-size="8.6" fill="#6b6b6b">一生一芯</text>
-<text x="34.0" y="122.5" font-size="9.4" fill="#1c1c1c">向量扩展 RVV</text>
-<text x="34.0" y="133.0" font-size="8.6" fill="#6b6b6b">RVV 1.0 指南</text>
-<rect x="148.3" y="24" width="114.3" height="125" rx="9" fill="#ffffff" stroke="#0a7d3b" stroke-opacity="0.40"/>
+<text x="83.1" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#1c1c1c">数字设计</text>
+<text x="34.0" y="61" font-size="10.0" fill="#1c1c1c">RTL / HDL</text>
+<text x="34.0" y="72.5" font-size="9.2" fill="#6b6b6b">NEORV32</text>
+<text x="34.0" y="84.0" font-size="9.2" fill="#6b6b6b">XUANTIE-RV 玄铁</text>
+<text x="34.0" y="101.0" font-size="10.0" fill="#1c1c1c">RISC-V 实现</text>
+<text x="34.0" y="112.5" font-size="9.2" fill="#6b6b6b">一生一芯</text>
+<text x="34.0" y="129.5" font-size="10.0" fill="#1c1c1c">向量扩展 RVV</text>
+<text x="34.0" y="141.0" font-size="9.2" fill="#6b6b6b">RVV 1.0 指南</text>
+<rect x="148.3" y="24" width="114.3" height="133" rx="9" fill="#ffffff" stroke="#0a7d3b" stroke-opacity="0.40"/>
 <rect x="148.3" y="24" width="114.3" height="3.5" rx="1.8" fill="#0a7d3b" fill-opacity="0.85"/>
-<text x="205.4" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#1c1c1c">AI 芯片</text>
-<text x="156.3" y="59" font-size="9.4" fill="#1c1c1c">AI 加速器</text>
-<text x="156.3" y="69.5" font-size="8.6" fill="#6b6b6b">nano-kpu</text>
-<text x="156.3" y="85.5" font-size="9.4" fill="#1c1c1c">GPU 编程</text>
-<text x="156.3" y="96.0" font-size="8.6" fill="#6b6b6b">CUDA Programming</text>
-<text x="156.3" y="106.5" font-size="8.6" fill="#6b6b6b">Guide</text>
-<text x="156.3" y="117.0" font-size="8.6" fill="#6b6b6b">Modern GPU</text>
-<text x="156.3" y="127.5" font-size="8.6" fill="#6b6b6b">Programming</text>
-<rect x="270.6" y="24" width="114.3" height="125" rx="9" fill="#ffffff" stroke="#8250df" stroke-opacity="0.40"/>
+<text x="205.4" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#1c1c1c">AI 芯片</text>
+<text x="156.3" y="61" font-size="10.0" fill="#1c1c1c">AI 加速器</text>
+<text x="156.3" y="72.5" font-size="9.2" fill="#6b6b6b">nano-kpu</text>
+<text x="156.3" y="89.5" font-size="10.0" fill="#1c1c1c">GPU 编程</text>
+<text x="156.3" y="101.0" font-size="9.2" fill="#6b6b6b">CUDA Programming</text>
+<text x="156.3" y="112.5" font-size="9.2" fill="#6b6b6b">Guide</text>
+<text x="156.3" y="124.0" font-size="9.2" fill="#6b6b6b">Modern GPU</text>
+<text x="156.3" y="135.5" font-size="9.2" fill="#6b6b6b">Programming</text>
+<rect x="270.6" y="24" width="114.3" height="133" rx="9" fill="#ffffff" stroke="#8250df" stroke-opacity="0.40"/>
 <rect x="270.6" y="24" width="114.3" height="3.5" rx="1.8" fill="#8250df" fill-opacity="0.85"/>
-<text x="327.7" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#1c1c1c">验证</text>
-<text x="278.6" y="59" font-size="9.4" fill="#1c1c1c">波形调试</text>
-<text x="278.6" y="69.5" font-size="8.6" fill="#6b6b6b">wave-mcp</text>
-<text x="278.6" y="85.5" font-size="9.4" fill="#1c1c1c">形式验证 / UVM</text>
-<text x="278.6" y="96.0" font-size="8.6" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
-<rect x="392.9" y="24" width="114.3" height="125" rx="9" fill="#ffffff" stroke="#d9730d" stroke-opacity="0.40"/>
+<text x="327.7" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#1c1c1c">验证</text>
+<text x="278.6" y="61" font-size="10.0" fill="#1c1c1c">波形调试</text>
+<text x="278.6" y="72.5" font-size="9.2" fill="#6b6b6b">wave-mcp</text>
+<text x="278.6" y="89.5" font-size="10.0" fill="#1c1c1c">形式验证 / UVM</text>
+<text x="278.6" y="101.0" font-size="9.2" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
+<rect x="392.9" y="24" width="114.3" height="133" rx="9" fill="#ffffff" stroke="#d9730d" stroke-opacity="0.40"/>
 <rect x="392.9" y="24" width="114.3" height="3.5" rx="1.8" fill="#d9730d" fill-opacity="0.85"/>
-<text x="450.0" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#1c1c1c">物理设计</text>
-<text x="400.9" y="59" font-size="9.4" fill="#1c1c1c">版图与裸片分析</text>
-<text x="400.9" y="69.5" font-size="8.6" fill="#6b6b6b">HiEq · Layout</text>
-<text x="400.9" y="80.0" font-size="8.6" fill="#6b6b6b">裸片图库</text>
-<text x="400.9" y="96.0" font-size="9.4" fill="#1c1c1c">综合 / STA / PnR</text>
-<text x="400.9" y="106.5" font-size="8.6" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
-<rect x="515.1" y="24" width="114.3" height="125" rx="9" fill="#ffffff" stroke="#cf222e" stroke-opacity="0.40"/>
+<text x="450.0" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#1c1c1c">物理设计</text>
+<text x="400.9" y="61" font-size="10.0" fill="#1c1c1c">版图与裸片分析</text>
+<text x="400.9" y="72.5" font-size="9.2" fill="#6b6b6b">HiEq · Layout</text>
+<text x="400.9" y="84.0" font-size="9.2" fill="#6b6b6b">裸片图库</text>
+<text x="400.9" y="101.0" font-size="10.0" fill="#1c1c1c">综合 / STA / PnR</text>
+<text x="400.9" y="112.5" font-size="9.2" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
+<rect x="515.1" y="24" width="114.3" height="133" rx="9" fill="#ffffff" stroke="#cf222e" stroke-opacity="0.40"/>
 <rect x="515.1" y="24" width="114.3" height="3.5" rx="1.8" fill="#cf222e" fill-opacity="0.85"/>
-<text x="572.3" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#1c1c1c">制造工艺</text>
-<text x="523.1" y="59" font-size="9.4" fill="#1c1c1c">制造全流程</text>
-<text x="523.1" y="69.5" font-size="8.6" fill="#6b6b6b">半導體製造概論</text>
-<text x="523.1" y="85.5" font-size="9.4" fill="#1c1c1c">封装与测试</text>
-<text x="523.1" y="96.0" font-size="8.6" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
-<rect x="637.4" y="24" width="114.3" height="125" rx="9" fill="#ffffff" stroke="#1a7f64" stroke-opacity="0.40"/>
+<text x="572.3" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#1c1c1c">制造工艺</text>
+<text x="523.1" y="61" font-size="10.0" fill="#1c1c1c">制造全流程</text>
+<text x="523.1" y="72.5" font-size="9.2" fill="#6b6b6b">半導體製造概論</text>
+<text x="523.1" y="89.5" font-size="10.0" fill="#1c1c1c">封装与测试</text>
+<text x="523.1" y="101.0" font-size="9.2" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
+<rect x="637.4" y="24" width="114.3" height="133" rx="9" fill="#ffffff" stroke="#1a7f64" stroke-opacity="0.40"/>
 <rect x="637.4" y="24" width="114.3" height="3.5" rx="1.8" fill="#1a7f64" fill-opacity="0.85"/>
-<text x="694.6" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#1c1c1c">存储与接口</text>
-<text x="645.4" y="59" font-size="9.4" fill="#1c1c1c">HBM / DRAM</text>
-<text x="645.4" y="69.5" font-size="8.6" fill="#6b6b6b">HBM 原理详解（抖音）</text>
-<text x="645.4" y="85.5" font-size="9.4" fill="#1c1c1c">UCIe / PCIe</text>
-<text x="645.4" y="96.0" font-size="8.6" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
-<rect x="759.7" y="24" width="114.3" height="125" rx="9" fill="#ffffff" stroke="#bf3989" stroke-opacity="0.40"/>
+<text x="694.6" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#1c1c1c">存储与接口</text>
+<text x="645.4" y="61" font-size="10.0" fill="#1c1c1c">HBM / DRAM</text>
+<text x="645.4" y="72.5" font-size="9.2" fill="#6b6b6b">HBM 原理详解（抖音）</text>
+<text x="645.4" y="89.5" font-size="10.0" fill="#1c1c1c">UCIe / PCIe</text>
+<text x="645.4" y="101.0" font-size="9.2" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
+<rect x="759.7" y="24" width="114.3" height="133" rx="9" fill="#ffffff" stroke="#bf3989" stroke-opacity="0.40"/>
 <rect x="759.7" y="24" width="114.3" height="3.5" rx="1.8" fill="#bf3989" fill-opacity="0.85"/>
-<text x="816.9" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#1c1c1c">光子与模拟</text>
-<text x="767.7" y="59" font-size="9.4" fill="#1c1c1c">硅光与光通信</text>
-<text x="767.7" y="69.5" font-size="8.6" fill="#6b6b6b">光通信器件原理</text>
-<text x="767.7" y="85.5" font-size="9.4" fill="#1c1c1c">模拟电路设计</text>
-<text x="767.7" y="96.0" font-size="8.6" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
-<path d="M450.0 213 C450.0 177.8 83.1 177.8 83.1 149" fill="none" stroke="#2f6df6" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 213 C450.0 177.8 205.4 177.8 205.4 149" fill="none" stroke="#0a7d3b" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 213 C450.0 177.8 327.7 177.8 327.7 149" fill="none" stroke="#8250df" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 213 C450.0 177.8 450.0 177.8 450.0 149" fill="none" stroke="#d9730d" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 213 C450.0 177.8 572.3 177.8 572.3 149" fill="none" stroke="#cf222e" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 213 C450.0 177.8 694.6 177.8 694.6 149" fill="none" stroke="#1a7f64" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 213 C450.0 177.8 816.9 177.8 816.9 149" fill="none" stroke="#bf3989" stroke-opacity="0.45" stroke-width="1.5"/>
-<rect x="26" y="213" width="848" height="83.5" rx="10" fill="#ffffff" stroke="#d3d3ce"/>
-<text x="38" y="229" font-size="10.8" font-weight="650" fill="#1c1c1c">基础层</text>
-<text x="862" y="229" text-anchor="end" font-size="9" fill="#8f8f8f">所有方向的共同基础</text>
-<text x="38.0" y="247" font-size="9.4" fill="#1c1c1c">C / Linux 系统编程</text>
-<text x="38.0" y="257.5" font-size="8.6" fill="#6b6b6b">Linux C编程一站式学习</text>
-<text x="244.0" y="247" font-size="9.4" fill="#1c1c1c">计算机体系结构</text>
-<text x="244.0" y="257.5" font-size="8.6" fill="#6b6b6b">CA: 量化研究方法</text>
-<text x="244.0" y="268.0" font-size="8.6" fill="#6b6b6b">计算机体系结构「森林导览」</text>
-<text x="450.0" y="247" font-size="9.4" fill="#1c1c1c">集成电路通识</text>
-<text x="450.0" y="257.5" font-size="8.6" fill="#6b6b6b">Bits on Chips</text>
-<text x="450.0" y="268.0" font-size="8.6" fill="#6b6b6b">Branch Education IC 系列</text>
-<text x="450.0" y="278.5" font-size="8.6" fill="#6b6b6b">芯片制造全过程（视频）</text>
-<text x="656.0" y="247" font-size="9.4" fill="#1c1c1c">半导体物理与器件</text>
-<text x="656.0" y="257.5" font-size="8.6" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
-<line x1="450.0" y1="326.5" x2="450.0" y2="296.5" stroke="#d3d3ce" stroke-width="1.3"/>
-<rect x="373.9" y="326.5" width="152.1" height="34" rx="17.0" fill="#1c1c1c"/>
-<text x="450.0" y="347.9" text-anchor="middle" font-size="13" font-weight="700" fill="#fcfcfb">IC 芯片设计技术栈</text>
-<text x="26" y="386" font-size="10.5" fill="#8f8f8f">共 18 份资源 · 灰色「待补充」= 该技能还没有收录资源　·　70asunflower.github.io/ic-chip-design-learning</text>
+<text x="816.9" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#1c1c1c">光子与模拟</text>
+<text x="767.7" y="61" font-size="10.0" fill="#1c1c1c">硅光与光通信</text>
+<text x="767.7" y="72.5" font-size="9.2" fill="#6b6b6b">光通信器件原理</text>
+<text x="767.7" y="89.5" font-size="10.0" fill="#1c1c1c">模拟电路设计</text>
+<text x="767.7" y="101.0" font-size="9.2" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
+<path d="M450.0 221 C450.0 185.8 83.1 185.8 83.1 157" fill="none" stroke="#2f6df6" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 221 C450.0 185.8 205.4 185.8 205.4 157" fill="none" stroke="#0a7d3b" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 221 C450.0 185.8 327.7 185.8 327.7 157" fill="none" stroke="#8250df" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 221 C450.0 185.8 450.0 185.8 450.0 157" fill="none" stroke="#d9730d" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 221 C450.0 185.8 572.3 185.8 572.3 157" fill="none" stroke="#cf222e" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 221 C450.0 185.8 694.6 185.8 694.6 157" fill="none" stroke="#1a7f64" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 221 C450.0 185.8 816.9 185.8 816.9 157" fill="none" stroke="#bf3989" stroke-opacity="0.45" stroke-width="1.5"/>
+<rect x="26" y="221" width="848" height="87.5" rx="10" fill="#ffffff" stroke="#d3d3ce"/>
+<text x="38" y="237" font-size="11.5" font-weight="650" fill="#1c1c1c">基础层</text>
+<text x="862" y="237" text-anchor="end" font-size="9" fill="#8f8f8f">所有方向的共同基础</text>
+<text x="38.0" y="255" font-size="10.0" fill="#1c1c1c">C / Linux 系统编程</text>
+<text x="38.0" y="266.5" font-size="9.2" fill="#6b6b6b">Linux C编程一站式学习</text>
+<text x="244.0" y="255" font-size="10.0" fill="#1c1c1c">计算机体系结构</text>
+<text x="244.0" y="266.5" font-size="9.2" fill="#6b6b6b">CA: 量化研究方法</text>
+<text x="244.0" y="278.0" font-size="9.2" fill="#6b6b6b">计算机体系结构「森林导览」</text>
+<text x="450.0" y="255" font-size="10.0" fill="#1c1c1c">集成电路通识</text>
+<text x="450.0" y="266.5" font-size="9.2" fill="#6b6b6b">Bits on Chips</text>
+<text x="450.0" y="278.0" font-size="9.2" fill="#6b6b6b">Branch Education IC 系列</text>
+<text x="450.0" y="289.5" font-size="9.2" fill="#6b6b6b">芯片制造全过程（视频）</text>
+<text x="656.0" y="255" font-size="10.0" fill="#1c1c1c">半导体物理与器件</text>
+<text x="656.0" y="266.5" font-size="9.2" fill="#8f8f8f" fill-opacity="0.8">待补充</text>
+<line x1="450.0" y1="338.5" x2="450.0" y2="308.5" stroke="#d3d3ce" stroke-width="1.3"/>
+<rect x="373.9" y="338.5" width="152.1" height="34" rx="17.0" fill="#1c1c1c"/>
+<text x="450.0" y="359.9" text-anchor="middle" font-size="13" font-weight="700" fill="#fcfcfb">IC 芯片设计技术栈</text>
+<text x="26" y="398" font-size="10.5" fill="#8f8f8f">共 18 份资源 · 灰色「待补充」= 该技能还没有收录资源　·　70asunflower.github.io/ic-chip-design-learning</text>
 </svg>

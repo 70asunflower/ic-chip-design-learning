@@ -15,11 +15,16 @@
   <a href="https://70asunflower.github.io/ai-learning-journey/">🤖 AI Learning Journey</a>
 </p>
 
+<details>
+<summary>📸 在线索引长什么样</summary>
+
 <p align="center">
   <a href="https://70asunflower.github.io/ic-chip-design-learning/">
     <img src="assets/preview.png" width="900" alt="IC Chip Design Learning 资源索引">
   </a>
 </p>
+
+</details>
 
 ## 🧭 技术栈树
 
@@ -33,7 +38,7 @@
 </p>
 
 <details>
-<summary>文本版（可点击跳转）</summary>
+<summary>文本版（可点击跳转，含全部资源）</summary>
 
 <!-- BUILD:TREE:START -->
 **基础层**（所有方向的共同基础）
@@ -84,6 +89,11 @@
 
 ## ✨ 从这里开始
 
+已经知道要学什么、只差排顺序时看这张——按轨道分组，组内从左到右是建议阅读顺序。
+
+<details>
+<summary>展开路径图（按顺序学）</summary>
+
 <p align="center">
   <a href="https://70asunflower.github.io/ic-chip-design-learning/">
     <picture>
@@ -92,9 +102,6 @@
     </picture>
   </a>
 </p>
-
-<details>
-<summary>文本版（可点击跳转）</summary>
 
 <!-- BUILD:MAP:START -->
 **1. 认识芯片**
@@ -346,7 +353,10 @@ _Empty — start the tapeout prep project!_
 
 ---
 
-## Directory Structure
+## 📁 目录结构
+
+<details>
+<summary>展开目录结构</summary>
 
 ```
 ic-chip-design-learning/
@@ -383,6 +393,8 @@ ic-chip-design-learning/
 └── README.md
 ```
 
+</details>
+
 ## 🤝 参与维护
 
 新增资源只需要写**一个** `.md` 文件——`0-Index.md`、子目录表格、上面这份导航和
@@ -390,7 +402,7 @@ ic-chip-design-learning/
 
 完整流程与硬性规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-## Changelog
+## 📋 Changelog
 
 <details>
 <summary>展开完整更新日志</summary>
