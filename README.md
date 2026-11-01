@@ -21,6 +21,67 @@
   </a>
 </p>
 
+## 🧭 技术栈树
+
+<p align="center">
+  <a href="https://70asunflower.github.io/ic-chip-design-learning/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/skilltree-dark.svg">
+      <img src="assets/skilltree-light.svg" width="900" alt="技术栈树：知识领域 → 技能 → 资源">
+    </picture>
+  </a>
+</p>
+
+<details>
+<summary>文本版（可点击跳转）</summary>
+
+<!-- BUILD:TREE:START -->
+**基础层**（所有方向的共同基础）
+
+- C / Linux 系统编程 — [Linux C编程一站式学习](0-Resources/1-Books/linux-c-programming.md)
+- 计算机体系结构 — [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/computer-architecture-quantitative-approach.md) · [计算机体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md)
+- 集成电路通识 — [Bits on Chips（芯片上的比特，第3版）](0-Resources/1-Books/bits-on-chips-veendrick.md) · [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) · [全网最详细的芯片制造全过程（抖音）](0-Resources/7-Videos/chip-manufacturing-process-douyin.md)
+- 半导体物理与器件 — _待补充_
+
+**数字设计**
+
+- RTL / HDL — [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) · [XUANTIE-RV 玄铁](0-Resources/4-OpenSource-Projects/xuantie-rv.md)
+- RISC-V 实现 — [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md)
+- 向量扩展 RVV — [RISC-V Vector Primer (RVV 1.0 指南)](0-Resources/5-Courses-Tutorials/riscv-vector-primer.md)
+
+**AI 芯片**
+
+- AI 加速器 — [nano-kpu](0-Resources/4-OpenSource-Projects/nano-kpu.md)
+- GPU 编程 — [CUDA Programming Guide](0-Resources/5-Courses-Tutorials/cuda-programming-guide.md) · [Modern GPU Programming For MLSys](0-Resources/5-Courses-Tutorials/mlc-modern-gpu-programming.md)
+
+**验证**
+
+- 波形调试 — [wave-mcp](0-Resources/3-EDA-Tools/wave-mcp.md)
+- 形式验证 / UVM — _待补充_
+
+**物理设计**
+
+- 版图与裸片分析 — [HiEq · Layout 裸片图库](0-Resources/4-OpenSource-Projects/hieq-dieshot-gallery.md)
+- 综合 / STA / PnR — _待补充_
+
+**制造工艺**
+
+- 制造全流程 — [半導體製造概論](0-Resources/1-Books/semiconductor-manufacturing-introduction.md)
+- 封装与测试 — _待补充_
+
+**存储与接口**
+
+- HBM / DRAM — [HBM 原理详解（抖音）](0-Resources/7-Videos/hbm-principles-douyin.md)
+- UCIe / PCIe — _待补充_
+
+**光子与模拟**
+
+- 硅光与光通信 — [光通信器件原理：从能级跃迁到硅光芯片](0-Resources/5-Courses-Tutorials/optical-communication-device-principles.md)
+- 模拟电路设计 — _待补充_
+<!-- BUILD:TREE:END -->
+
+</details>
+
 ## ✨ 从这里开始
 
 <p align="center">

@@ -83,6 +83,33 @@ git add -A && git commit -m "feat(resources): add <名称>"
 1. 建子目录 `2-Code/<project-name>/`，含源文件与 `README.md`
 2. 加进 `2-Code/README.md`
 
+## 改技术栈树
+
+`scripts/build.py` 顶部的 `SKILLTREE` 画成一棵**自下而上的树**：根部是基础技能，
+向上分叉到各专业方向，每个技能下面挂资源。
+
+```python
+SKILLTREE = {
+    "root": "IC 芯片设计技术栈",
+    "foundation": {"name": "基础层", "skills": [
+        {"name": "计算机体系结构", "items": ["0-Resources/..."]},
+        {"name": "半导体物理与器件", "items": []},     # ← 显示为「待补充」
+    ]},
+    "branches": [
+        {"name": "数字设计", "skills": [
+            {"name": "RTL / HDL", "items": ["0-Resources/..."]},
+        ]},
+    ],
+}
+```
+
+- `foundation` 画在根部那条横板上，`branches` 是向上发散的分叉（当前 7 条）
+- 技能 `items` 留空 → 灰色「待补充」，用来标出**还没收录资源**的技能
+- **硬性约束**：每个资源必须恰好出现一次，漏一个/重复/指向已删文件都直接构建失败
+- 分叉数量变了（比如加到 8 条），盒子宽度会自动重算，不用手调
+
+和路线图的区别：路线图回答「按什么顺序学」，树回答「这个领域有哪些技能、各自有什么」。
+
 ## 硬性规则
 
 - **文件名**：小写、连字符分隔（如 `axi-bus-protocol.md`）

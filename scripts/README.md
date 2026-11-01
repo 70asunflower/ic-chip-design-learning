@@ -15,8 +15,10 @@
 | `0-Resources/<子目录>/README.md` | `<!-- BUILD:TABLE:START/END -->` 之间 |
 | `README.md` 资源导航 | `<!-- BUILD:NAV:START/END -->` 之间 |
 | `README.md` 文本版地图 | `<!-- BUILD:MAP:START/END -->` 之间 |
+| `README.md` 文本版技术栈树 | `<!-- BUILD:TREE:START/END -->` 之间 |
 | `index.html` | 整个文件 |
 | `assets/roadmap-light.svg` / `-dark.svg` | 整个文件 |
+| `assets/skilltree-light.svg` / `-dark.svg` | 整个文件 |
 
 ```bash
 python scripts/build.py            # 重写全部产物
@@ -64,4 +66,4 @@ python scripts/normalize_tags.py --report   # tag 频次 / 单例 tag
 - `summary` 同时用于网页卡片和子目录表格，40–60 字最佳
 - 不需要 `_Last updated` footer：`date` 是唯一的日期来源
 - 新 tag 前先查 `scripts/tags.json`；确实是新概念才新增，近义词写进别名表
-- 生成块不要手改（`BUILD:NAV` / `BUILD:TABLE` / `BUILD:MAP` 标记之间）
+- 生成块不要手改（`BUILD:NAV` / `BUILD:TABLE` / `BUILD:MAP` / `BUILD:TREE` 标记之间）

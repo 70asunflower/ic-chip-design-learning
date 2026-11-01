@@ -59,6 +59,7 @@ EMPTY_HINT = {
 NAV_START, NAV_END = "<!-- BUILD:NAV:START -->", "<!-- BUILD:NAV:END -->"
 TAB_START, TAB_END = "<!-- BUILD:TABLE:START -->", "<!-- BUILD:TABLE:END -->"
 MAP_START, MAP_END = "<!-- BUILD:MAP:START -->", "<!-- BUILD:MAP:END -->"
+TREE_START, TREE_END = "<!-- BUILD:TREE:START -->", "<!-- BUILD:TREE:END -->"
 
 # The learning map. Every resource must appear exactly once — the build fails
 # otherwise, so the diagram can never silently drop an entry again.
@@ -226,13 +227,13 @@ def check_roadmap(by_rel: dict[str, dict]) -> None:
 THEMES = {
     "light": dict(
         bg="#fcfcfb", card="#ffffff", border="#e6e6e4", text="#1c1c1c",
-        muted="#8f8f8f", sub="#6b6b6b", rule="#efefec", pill="#ffffff",
+        muted="#8f8f8f", sub="#6b6b6b", rule="#efefec", pill="#ffffff", tree="#d3d3ce",
         track=["#2f6df6", "#0a7d3b", "#8250df", "#d9730d", "#cf222e",
                "#1a7f64", "#bf3989", "#8b5cf6"],
     ),
     "dark": dict(
         bg="#101011", card="#1b1b1d", border="#2c2c30", text="#e9e9e7",
-        muted="#8c8c8c", sub="#a6a6a6", rule="#232327", pill="#1b1b1d",
+        muted="#8c8c8c", sub="#a6a6a6", rule="#232327", pill="#1b1b1d", tree="#3c3c43",
         track=["#6f9bf2", "#3fb950", "#b18aff", "#e8913a", "#ff7b72",
                "#4ec9a0", "#f778ba", "#a78bfa"],
     ),
@@ -357,12 +358,276 @@ def splice(text: str, start: str, end: str, body: str, path: str) -> str:
     return text[:i + len(start)] + "\n" + body + "\n" + text[j:]
 
 
+# ---------------------------------------------------------------- skill tree
+# A real tree, drawn bottom-up: root -> foundation slab -> specialisation
+# branches. Foundational skills sit at the root, specialisations fan upward.
+# Every resource must appear exactly once; an empty skill renders as a gap.
+SKILLTREE = {
+    "root": "IC 芯片设计技术栈",
+    "foundation": {"name": "基础层", "skills": [
+        {"name": "C / Linux 系统编程", "items": [
+            "0-Resources/1-Books/linux-c-programming.md"]},
+        {"name": "计算机体系结构", "items": [
+            "0-Resources/1-Books/computer-architecture-quantitative-approach.md",
+            "0-Resources/2-Papers/computer-architecture-forest-guide.md"]},
+        {"name": "集成电路通识", "items": [
+            "0-Resources/1-Books/bits-on-chips-veendrick.md",
+            "0-Resources/5-Courses-Tutorials/branch-education-ic-series.md",
+            "0-Resources/7-Videos/chip-manufacturing-process-douyin.md"]},
+        {"name": "半导体物理与器件", "items": []},
+    ]},
+    "branches": [
+        {"name": "数字设计", "skills": [
+            {"name": "RTL / HDL", "items": [
+                "0-Resources/4-OpenSource-Projects/neorv32.md",
+                "0-Resources/4-OpenSource-Projects/xuantie-rv.md"]},
+            {"name": "RISC-V 实现", "items": [
+                "0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md"]},
+            {"name": "向量扩展 RVV", "items": [
+                "0-Resources/5-Courses-Tutorials/riscv-vector-primer.md"]},
+        ]},
+        {"name": "AI 芯片", "skills": [
+            {"name": "AI 加速器", "items": [
+                "0-Resources/4-OpenSource-Projects/nano-kpu.md"]},
+            {"name": "GPU 编程", "items": [
+                "0-Resources/5-Courses-Tutorials/cuda-programming-guide.md",
+                "0-Resources/5-Courses-Tutorials/mlc-modern-gpu-programming.md"]},
+        ]},
+        {"name": "验证", "skills": [
+            {"name": "波形调试", "items": [
+                "0-Resources/3-EDA-Tools/wave-mcp.md"]},
+            {"name": "形式验证 / UVM", "items": []},
+        ]},
+        {"name": "物理设计", "skills": [
+            {"name": "版图与裸片分析", "items": [
+                "0-Resources/4-OpenSource-Projects/hieq-dieshot-gallery.md"]},
+            {"name": "综合 / STA / PnR", "items": []},
+        ]},
+        {"name": "制造工艺", "skills": [
+            {"name": "制造全流程", "items": [
+                "0-Resources/1-Books/semiconductor-manufacturing-introduction.md"]},
+            {"name": "封装与测试", "items": []},
+        ]},
+        {"name": "存储与接口", "skills": [
+            {"name": "HBM / DRAM", "items": [
+                "0-Resources/7-Videos/hbm-principles-douyin.md"]},
+            {"name": "UCIe / PCIe", "items": []},
+        ]},
+        {"name": "光子与模拟", "skills": [
+            {"name": "硅光与光通信", "items": [
+                "0-Resources/5-Courses-Tutorials/optical-communication-device-principles.md"]},
+            {"name": "模拟电路设计", "items": []},
+        ]},
+    ],
+}
+
+TREE_TOP = 24
+BRANCH_GAP = 8
+FAN_H = 64
+SLAB_GAP = 30
+ROOT_H = 34
+NAME_SIZE, SKILL_SIZE, RES_SIZE = 10.8, 9.4, 8.6
+LH_NAME, LH_SKILL, LH_RES = 15, 12, 10.5
+
+
+def _skills_of(node: dict) -> list[dict]:
+    return node["skills"]
+
+
+def all_tree_skills() -> list[dict]:
+    out = list(SKILLTREE["foundation"]["skills"])
+    for b in SKILLTREE["branches"]:
+        out.extend(b["skills"])
+    return out
+
+
+def check_skilltree(by_rel: dict[str, dict]) -> None:
+    listed = [rel for s in all_tree_skills() for rel in s["items"]]
+    dupes = sorted({r for r in listed if listed.count(r) > 1})
+    missing = sorted(set(by_rel) - set(listed))
+    unknown = sorted(set(listed) - set(by_rel))
+    problems = []
+    if missing:
+        problems.append(f"not in SKILLTREE: {missing}")
+    if unknown:
+        problems.append(f"SKILLTREE points at missing files: {unknown}")
+    if dupes:
+        problems.append(f"listed twice: {dupes}")
+    if problems:
+        raise SystemExit("skill tree is out of sync with 0-Resources/\n  "
+                         + "\n  ".join(problems))
+
+
+def _wrap(s: str, size: float, maxw: float, max_lines: int) -> list[str]:
+    if _tw(s, size) <= maxw:
+        return [s]
+    words, lines, cur = s.split(" "), [], ""
+    for w in words:
+        cand = f"{cur} {w}".strip()
+        if _tw(cand, size) <= maxw:
+            cur = cand
+            continue
+        if cur:
+            lines.append(cur)
+        cur = w
+        if len(lines) == max_lines:
+            break
+    if cur and len(lines) < max_lines:
+        lines.append(cur)
+    lines = lines[:max_lines]
+    lines[-1] = _fit(lines[-1], size, maxw)[0]
+    return lines
+
+
+def _skill_lines(skill: dict, by_rel: dict, width: float) -> tuple[list[str], list[str]]:
+    """Return (skill name line, resource lines) for a column of the given width."""
+    res = []
+    if skill["items"]:
+        for rel in skill["items"]:
+            res.extend(_wrap(by_rel[rel]["short"], RES_SIZE, width, 2))
+    return [skill["name"]], res
+
+
+def render_skilltree(by_rel: dict[str, dict], theme: str) -> str:
+    t = THEMES[theme]
+    e = escape
+    branches = SKILLTREE["branches"]
+    n = len(branches)
+    bw = (W - 2 * PAD - (n - 1) * BRANCH_GAP) / n
+
+    # --- measure branch columns ---
+    cols = []
+    for b in branches:
+        blocks = []
+        for s in b["skills"]:
+            name, res = _skill_lines(s, by_rel, bw - 16)
+            blocks.append((name, res))
+        h = 8 + LH_NAME + sum(LH_SKILL + len(r) * LH_RES + 4 for _, r in blocks) + 12
+        cols.append((b, blocks, h))
+    box_h = round(max(h for _, _, h in cols))
+
+    # --- foundation slab: skills laid out as columns ---
+    fskills = SKILLTREE["foundation"]["skills"]
+    fw = (W - 2 * PAD - (len(fskills) - 1) * BRANCH_GAP) / len(fskills)
+    fblocks = []
+    for s in fskills:
+        name, res = _skill_lines(s, by_rel, fw - 16)
+        fblocks.append((name, res))
+    SLAB_LABEL_H = 24
+    slab_h = SLAB_LABEL_H + max(LH_SKILL + len(r) * LH_RES + 4 for _, r in fblocks) + 12
+
+    slab_top = TREE_TOP + box_h + FAN_H
+    root_top = slab_top + slab_h + SLAB_GAP
+    H = round(root_top + ROOT_H + 46)
+
+    o = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+        f'viewBox="0 0 {W} {H}" role="img" '
+        f'aria-label="技术栈树：基础技能在根部，向上分叉到各专业方向" font-family="{FONT}">',
+        f'<rect width="{W}" height="{H}" rx="14" fill="{t["bg"]}" stroke="{t["border"]}"/>',
+        f'<text x="{PAD}" y="0" font-size="0" fill="none">.</text>',
+    ]
+
+    # --- branch boxes (top) ---
+    for i, (b, blocks, _h) in enumerate(cols):
+        x = PAD + i * (bw + BRANCH_GAP)
+        color = t["track"][i % len(t["track"])]
+        o.append(f'<rect x="{x:.1f}" y="{TREE_TOP}" width="{bw:.1f}" height="{box_h}" '
+                 f'rx="9" fill="{t["pill"]}" stroke="{color}" stroke-opacity="0.40"/>')
+        o.append(f'<rect x="{x:.1f}" y="{TREE_TOP}" width="{bw:.1f}" height="3.5" '
+                 f'rx="1.8" fill="{color}" fill-opacity="0.85"/>')
+        cy = TREE_TOP + 8 + LH_NAME - 4
+        o.append(f'<text x="{x + bw / 2:.1f}" y="{cy}" text-anchor="middle" '
+                 f'font-size="{NAME_SIZE}" font-weight="650" fill="{t["text"]}">'
+                 f'{e(b["name"])}</text>')
+        cy += 4
+        for name, res in blocks:
+            cy += LH_SKILL
+            o.append(f'<text x="{x + 8:.1f}" y="{cy}" font-size="{SKILL_SIZE}" '
+                     f'fill="{t["text"]}">{e(_fit(name[0], SKILL_SIZE, bw - 16)[0])}</text>')
+            if res:
+                for line in res:
+                    cy += LH_RES
+                    o.append(f'<text x="{x + 8:.1f}" y="{cy}" font-size="{RES_SIZE}" '
+                             f'fill="{t["sub"]}">{e(line)}</text>')
+            else:
+                cy += LH_RES
+                o.append(f'<text x="{x + 8:.1f}" y="{cy}" font-size="{RES_SIZE}" '
+                         f'fill="{t["muted"]}" fill-opacity="0.8">待补充</text>')
+            cy += 4
+
+    # --- fan: slab top centre -> each branch box bottom centre ---
+    cx0, cy0 = W / 2, slab_top
+    for i in range(n):
+        bx = PAD + i * (bw + BRANCH_GAP) + bw / 2
+        by = TREE_TOP + box_h
+        color = t["track"][i % len(t["track"])]
+        o.append(f'<path d="M{cx0:.1f} {cy0} C{cx0:.1f} {cy0 - FAN_H * 0.55:.1f} '
+                 f'{bx:.1f} {by + FAN_H * 0.45:.1f} {bx:.1f} {by}" '
+                 f'fill="none" stroke="{color}" stroke-opacity="0.45" stroke-width="1.5"/>')
+
+    # --- foundation slab ---
+    o.append(f'<rect x="{PAD}" y="{slab_top}" width="{W - 2 * PAD}" height="{slab_h}" '
+             f'rx="10" fill="{t["pill"]}" stroke="{t["tree"]}"/>')
+    o.append(f'<text x="{PAD + 12}" y="{slab_top + 16}" font-size="{NAME_SIZE}" '
+             f'font-weight="650" fill="{t["text"]}">{e(SKILLTREE["foundation"]["name"])}</text>')
+    o.append(f'<text x="{W - PAD - 12}" y="{slab_top + 16}" text-anchor="end" '
+             f'font-size="9" fill="{t["muted"]}">所有方向的共同基础</text>')
+    for j, (name, res) in enumerate(fblocks):
+        fx = PAD + 12 + j * fw
+        fy = slab_top + SLAB_LABEL_H + 10
+        o.append(f'<text x="{fx:.1f}" y="{fy}" font-size="{SKILL_SIZE}" '
+                 f'fill="{t["text"]}">{e(_fit(name[0], SKILL_SIZE, fw - 16)[0])}</text>')
+        for line in (res or ["待补充"]):
+            fy += LH_RES
+            muted = not res
+            o.append(f'<text x="{fx:.1f}" y="{fy}" font-size="{RES_SIZE}" '
+                     f'fill="{t["muted"] if muted else t["sub"]}"'
+                     f'{" fill-opacity=\"0.8\"" if muted else ""}>{e(line)}</text>')
+
+    # --- root ---
+    rw = _tw(SKILLTREE["root"], 12.5) + 44
+    rx = (W - rw) / 2
+    o.append(f'<line x1="{W / 2}" y1="{root_top}" x2="{W / 2}" y2="{slab_top + slab_h}" '
+             f'stroke="{t["tree"]}" stroke-width="1.3"/>')
+    o.append(f'<rect x="{rx:.1f}" y="{root_top}" width="{rw:.1f}" height="{ROOT_H}" '
+             f'rx="{ROOT_H / 2}" fill="{t["text"]}"/>')
+    o.append(f'<text x="{W / 2}" y="{root_top + ROOT_H / 2 + 4.4}" text-anchor="middle" '
+             f'font-size="13" font-weight="700" fill="{t["bg"]}">'
+             f'{e(SKILLTREE["root"])}</text>')
+
+    o.append(f'<text x="{PAD}" y="{H - 20}" font-size="10.5" fill="{t["muted"]}">'
+             f'共 {len(by_rel)} 份资源 · 灰色「待补充」= 该技能还没有收录资源　·　'
+             f'{generate_index.PAGES_URL.replace("https://", "").rstrip("/")}</text>')
+    o.append("</svg>")
+    return "\n".join(o) + "\n"
+
+
+def render_skilltree_md(by_rel: dict[str, dict]) -> str:
+    def skill_md(s: dict) -> str:
+        if not s["items"]:
+            return f"- {s['name']} — _待补充_"
+        names = " · ".join(f"[{by_rel[r]['title']}]({r})" for r in s["items"])
+        return f"- {s['name']} — {names}"
+
+    out = ["**基础层**（所有方向的共同基础）", ""]
+    out += [skill_md(s) for s in SKILLTREE["foundation"]["skills"]]
+    out.append("")
+    for b in SKILLTREE["branches"]:
+        out.append(f"**{b['name']}**")
+        out.append("")
+        out += [skill_md(s) for s in b["skills"]]
+        out.append("")
+    return "\n".join(out).rstrip()
+
+
 # ---------------------------------------------------------------- driver
 def build(check: bool = False) -> int:
     groups = load_resources()
     index_md = render_index_md(groups)
     by_rel = {r["rel"]: r for items in groups.values() for r in items}
     check_roadmap(by_rel)
+    check_skilltree(by_rel)
 
     targets: list[tuple[pathlib.Path, str]] = [(RES / "0-Index.md", index_md)]
 
@@ -376,6 +641,7 @@ def build(check: bool = False) -> int:
     readme_p = ROOT / "README.md"
     readme = readme_p.read_text(encoding="utf-8")
     readme = splice(readme, MAP_START, MAP_END, render_roadmap_md(by_rel), "README.md")
+    readme = splice(readme, TREE_START, TREE_END, render_skilltree_md(by_rel), "README.md")
     targets.append((readme_p, splice(readme, NAV_START, NAV_END,
                                      render_nav(groups), "README.md")))
 
@@ -386,6 +652,8 @@ def build(check: bool = False) -> int:
     for theme in ("light", "dark"):
         targets.append((ROOT / "assets" / f"roadmap-{theme}.svg",
                         render_roadmap(by_rel, theme)))
+        targets.append((ROOT / "assets" / f"skilltree-{theme}.svg",
+                        render_skilltree(by_rel, theme)))
 
     stale = []
     for p, new in targets:
@@ -406,8 +674,9 @@ def build(check: bool = False) -> int:
             print("  " + str(p.relative_to(ROOT)).replace("\\", "/"))
     else:
         print("All artifacts up to date.")
+    n_gap = sum(1 for s in all_tree_skills() if not s["items"])
     print(f"{n_items} resources, {n_tags} tags, {len(SUBDIRS)} categories, "
-          f"{len(ROADMAP)} roadmap tracks")
+          f"{len(ROADMAP)} roadmap tracks, {len(SKILLTREE['branches'])} branches / {n_gap} gaps")
 
     # A pill that had to be cut needs a `short:` frontmatter field to read well.
     for track in ROADMAP:
