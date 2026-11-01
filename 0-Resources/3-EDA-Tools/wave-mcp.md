@@ -1,12 +1,13 @@
 ---
+title: wave-mcp
+summary: 腾讯开源波形调试 MCP：只读波形 + RTL，给 AI Agent 37 个工具（值/X 态追踪、pass/fail diff、浏览器波形），免 License
 source: https://github.com/Tencent/wave-mcp
 date: 2026-10-31
-tags: [verification, waveform, mcp, ai-agent, fst, vcd, fsdb, pyslang, pylibfst, debug, x-state, diff, tencent, open-source]
+tags: [verification, ai-agent, tencent, open-source]
 links:
   - https://github.com/Tencent/wave-mcp
   - https://mp.weixin.qq.com/s/1S4aN6f-opERFy9qAN3RpA
 ---
-
 # wave-mcp（腾讯开源）
 
 > 腾讯蓬莱实验室验证团队开源的 **波形调试 MCP Server**：**不跑仿真器，只消费你已经产出的波形 + RTL 源码**，给 LLM/Code Agent 提供 **37 个工具（12 类）**的波形调试能力。纯开源栈（pylibfst + pyslang），免 License、不限并发、不限机器数——这正是 Agent 深度接入验证流程的前提。

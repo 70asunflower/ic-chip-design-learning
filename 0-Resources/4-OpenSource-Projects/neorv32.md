@@ -1,9 +1,10 @@
 ---
+title: NEORV32
+summary: 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片
 source: https://github.com/stnolting/neorv32
 date: 2026-05-29
 tags: [risc-v, vhdl, soc, fpga, open-source]
 ---
-
 # NEORV32 — RISC-V SoC
 
 ## 核心要点（摘要）

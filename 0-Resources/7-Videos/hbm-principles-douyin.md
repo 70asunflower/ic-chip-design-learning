@@ -1,11 +1,12 @@
 ---
+title: HBM 原理详解（抖音）
+summary: Redknot-乔红：HBM 高带宽存储器原理动画讲解
 source: https://v.douyin.com/fvFwIN7kKus/
 date: 2026-06-26
-tags: [hbm, memory, dram, high-bandwidth-memory, video, douyin, semiconductor]
+tags: [hbm, memory, video, semiconductor]
 links:
   - https://v.douyin.com/fvFwIN7kKus/
 ---
-
 # HBM 原理详解
 
 **来源**: 抖音 - Redknot-乔红  

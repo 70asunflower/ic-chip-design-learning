@@ -1,12 +1,13 @@
 ---
+title: 半導體製造概論
+summary: 913★ 开放教材：沙子→晶圆→制程→封测全流程，24 章 + 术语框/实务框，零基础可读，四语言
 source: https://github.com/chenwei810/Semiconductor_Manufacturing_Introduction
 date: 2026-10-16
-tags: [semiconductor-manufacturing, fab, process-flow, cmos, lithography, etch, thin-film, cmp, packaging, test, textbook, chinese, beginner]
+tags: [semiconductor, cmos, lithography, etch, thin-film, cmp, packaging, test, book, chinese, beginner]
 links:
   - https://github.com/chenwei810/Semiconductor_Manufacturing_Introduction
   - https://github.com/chenwei810/Semiconductor_Manufacturing_Introduction/tree/main/zh-TW
 ---
-
 # 半導體製造概論（Introduction to Semiconductor Manufacturing）
 
 > 面向初学者的开放教材（**913★**），追踪一片硅晶圆从**沙子 → 晶圆厂 → 制程模块与整合 → 测试 → 封装 → 芯片**的全过程。刻意跳过重物理，专注**制程流程、术语与现场实务（know-how）**——每章配「术语框（term boxes）」和「实务知识框（know-how boxes）」，零半导体物理基础可读。繁体中文为原版，另有英/日/韩三版。

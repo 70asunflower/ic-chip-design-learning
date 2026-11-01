@@ -1,0 +1,90 @@
+{
+  "_comment": [
+    "Tag alias registry. Left = deprecated spelling, right = canonical tag.",
+    "check_consistency.py fails if any of these appear in a resource frontmatter.",
+    "Run `python scripts/normalize_tags.py` to rewrite them.",
+    "Add a new pair here instead of letting a near-duplicate tag in."
+  ],
+  "aliases": {
+    "半导体": "semiconductor",
+    "集成电路": "semiconductor",
+    "芯片": "semiconductor",
+    "微电子": "semiconductor",
+    "教材": "book",
+
+    "architecture": "computer-architecture",
+    "cpu-design": "computer-architecture",
+    "cpu-architecture": "computer-architecture",
+    "hardware-architecture": "computer-architecture",
+
+    "semiconductor-manufacturing": "semiconductor",
+    "ic-manufacturing": "semiconductor",
+    "chip-manufacturing": "semiconductor",
+    "manufacturing": "semiconductor",
+    "fabrication": "semiconductor",
+    "fab": "semiconductor",
+    "process": "semiconductor",
+    "process-flow": "semiconductor",
+    "process-node": "semiconductor",
+
+    "douyin": "video",
+    "youtube": "video",
+    "animation": "video",
+    "3d-animation": "video",
+    "educational-video": "video",
+
+    "rvv": "risc-v",
+    "vector-processor": "risc-v",
+    "matrix-extension": "risc-v",
+
+    "nvidia": "gpu",
+    "blackwell": "gpu",
+
+    "gemm": "kernel",
+    "flash-attention": "kernel",
+    "kernel-optimization": "kernel",
+    "tma": "kernel",
+    "warp-specialization": "kernel",
+    "tirx": "kernel",
+
+    "parallel-programming": "cuda",
+    "programming-model": "cuda",
+    "parallel-computing": "cuda",
+
+    "waveform": "verification",
+    "vcd": "verification",
+    "fst": "verification",
+    "fsdb": "verification",
+    "pyslang": "verification",
+    "pylibfst": "verification",
+    "debug": "verification",
+    "x-state": "verification",
+    "diff": "verification",
+
+    "mcp": "ai-agent",
+
+    "textbook": "book",
+    "survey": "paper",
+
+    "high-bandwidth-memory": "hbm",
+    "dram": "memory",
+    "memory-hierarchy": "memory",
+
+    "silicon-photonics": "photonics",
+    "optics": "photonics",
+    "optical-communication": "photonics",
+    "modulator": "photonics",
+    "laser": "photonics",
+    "detector": "photonics",
+
+    "chip-images": "dieshot",
+    "gallery": "dieshot",
+
+    "verilator": "open-source-eda",
+    "yosys": "open-source-eda",
+    "openroad": "open-source-eda",
+    "nangate45": "open-source-eda",
+
+    "int4": "quantization"
+  }
+}

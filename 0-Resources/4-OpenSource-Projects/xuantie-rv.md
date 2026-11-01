@@ -1,9 +1,10 @@
 ---
+title: XUANTIE-RV 玄铁
+summary: 达摩院 RISC-V 开源生态，OpenC910/C906/E906 + wujian100 SoC
 source: https://github.com/XUANTIE-RV
 date: 2026-05-29
 tags: [risc-v, processor, verilog, soc, alibaba, open-source]
 ---
-
 # XUANTIE-RV — 达摩院玄铁 RISC-V 开源生态
 
 > 阿里达摩院玄铁团队，RISC-V 处理器 IP 开源项目集群，69 个仓库

@@ -1,25 +1,68 @@
-# IC Chip Design Learning Journey 🖥️🔬
+<h1 align="center">IC Chip Design Learning</h1>
 
-> A collection of resources, notes, code, and project explorations in IC chip design — from RTL to tapeout.
+<p align="center">
+  从 RTL 到流片 · 精选资源 / 笔记 / 代码 / 项目<br>
+  <sub>每条资源都带中文摘要与要点，点开即可在线阅读</sub>
+</p>
 
----
+<p align="center">
+  <a href="https://70asunflower.github.io/ic-chip-design-learning/"><b>🌐 在线索引</b></a>
+  &nbsp;·&nbsp;
+  <a href="0-Resources/0-Index.md">📚 全部资源</a>
+  &nbsp;·&nbsp;
+  <a href="CONTRIBUTING.md">🛠 参与维护</a>
+  &nbsp;·&nbsp;
+  <a href="https://70asunflower.github.io/ai-learning-journey/">🤖 AI Learning Journey</a>
+</p>
 
-## Wiki Navigation
+<p align="center">
+  <a href="https://70asunflower.github.io/ic-chip-design-learning/">
+    <img src="assets/preview.png" width="900" alt="IC Chip Design Learning 资源索引">
+  </a>
+</p>
 
+## ✨ 从这里开始
+
+<p align="center">
+  <a href="https://70asunflower.github.io/ic-chip-design-learning/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/roadmap-dark.svg">
+      <img src="assets/roadmap-light.svg" width="900" alt="学习路线图：5 条路径，每条给出「先读」与「接着」">
+    </picture>
+  </a>
+</p>
+
+<details>
+<summary>文本版（可点击跳转）</summary>
+
+| 我想… | 先读 | 接着 |
+| :--- | :--- | :--- |
+| 零基础认识芯片 | [Bits on Chips](0-Resources/1-Books/bits-on-chips-veendrick.md) — 集成电路通识导论，设计/制造/应用全链条 | [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) 3D 动画看懂光刻与 CPU |
+| 搞懂芯片怎么造 | [半導體製造概論](0-Resources/1-Books/semiconductor-manufacturing-introduction.md) — 沙子→晶圆→制程→封测，24 章 | [芯片制造全过程](0-Resources/7-Videos/chip-manufacturing-process-douyin.md) 视频版走一遍 |
+| 学 RISC-V 处理器设计 | [一生一芯](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) — 全流程培养计划，免费流片 | [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) 读一份完整 VHDL SoC |
+| 做体系结构研究 | [CA: A Quantitative Approach](0-Resources/1-Books/computer-architecture-quantitative-approach.md) — 量化方法圣经 | [体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md) 看清全领域地图 |
+| 设计 AI 加速器 | [Modern GPU Programming](0-Resources/5-Courses-Tutorials/mlc-modern-gpu-programming.md) — 先懂 kernel | [nano-kpu](0-Resources/4-OpenSource-Projects/nano-kpu.md) 再看整颗推理芯片 RTL |
+
+</details>
+
+## 🗂️ 资源导航
+
+<!-- BUILD:NAV:START -->
 <details open>
 <summary><b>📚 Resources</b></summary>
 
 <details>
 <summary>1-Books</summary>
 
-- [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/README.md) — Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
+- [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/computer-architecture-quantitative-approach.md) — Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
 - [Linux C编程一站式学习](0-Resources/1-Books/linux-c-programming.md) — C 语言 + Linux 系统编程一站式覆盖（宋劲杉）
 - [Bits on Chips（芯片上的比特，第3版）](0-Resources/1-Books/bits-on-chips-veendrick.md) — Veendrick 著，Springer 集成电路通识导论，覆盖设计/制造/应用全链条（含 2nm 节点）
 - [半導體製造概論](0-Resources/1-Books/semiconductor-manufacturing-introduction.md) — 913★ 开放教材：沙子→晶圆→制程→封测全流程，24 章 + 术语框/实务框，零基础可读，四语言
+- [📄 Books Index](0-Resources/1-Books/README.md)
 
 </details>
 
-<details open>
+<details>
 <summary>2-Papers</summary>
 
 - [计算机体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md) — 87页研一综述：从通用处理器到 LLM/Tansformer 加速、Chiplet、神经形态/量子/光子，附PDF
@@ -28,24 +71,26 @@
 </details>
 
 <details>
-<summary>3-EDA-Tools</summary>
+<summary>3-EDA Tools</summary>
 
 - [wave-mcp](0-Resources/3-EDA-Tools/wave-mcp.md) — 腾讯开源波形调试 MCP：只读波形 + RTL，给 AI Agent 37 个工具（值/X 态追踪、pass/fail diff、浏览器波形），免 License
+- [📄 EDA Tools Index](0-Resources/3-EDA-Tools/README.md)
 
 </details>
 
 <details>
-<summary>4-OpenSource-Projects</summary>
+<summary>4-Open Source Projects</summary>
 
 - [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) — 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片
 - [XUANTIE-RV 玄铁](0-Resources/4-OpenSource-Projects/xuantie-rv.md) — 达摩院 RISC-V 开源生态，OpenC910/C906/E906 + wujian100 SoC
 - [nano-kpu](0-Resources/4-OpenSource-Projects/nano-kpu.md) — MoonshotAI：Kimi-K3 全流程设计的推理芯片 RTL（KDA 线性注意力 + MLA + MoE，int4），带完整仿真与综合流程
 - [HiEq · Layout 裸片图库](0-Resources/4-OpenSource-Projects/hieq-dieshot-gallery.md) — 222 张处理器 die shot（25 家厂商、标注工艺节点），在线浏览与原图下载
+- [📄 Open Source Projects Index](0-Resources/4-OpenSource-Projects/README.md)
 
 </details>
 
 <details>
-<summary>5-Courses-Tutorials</summary>
+<summary>5-Courses & Tutorials</summary>
 
 - [CUDA Programming Guide](0-Resources/5-Courses-Tutorials/cuda-programming-guide.md) — NVIDIA 官方 GPU 并行编程模型文档
 - [光通信器件原理：从能级跃迁到硅光芯片](0-Resources/5-Courses-Tutorials/optical-communication-device-principles.md) — 光通信入门科普：调制器/激光器/探测器，连接 IC 制造与光子学
@@ -53,27 +98,30 @@
 - [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) — 3D 动画科普：光刻→芯片制造→CPU 架构
 - [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) — 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片
 - [RISC-V Vector Primer (RVV 1.0 指南)](0-Resources/5-Courses-Tutorials/riscv-vector-primer.md) — 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension
+- [📄 Courses & Tutorials Index](0-Resources/5-Courses-Tutorials/README.md)
 
 </details>
 
 <details>
-<summary>6-Industry-Standards</summary>
+<summary>6-Industry Standards</summary>
 
-_Empty — add your first industry standard!_
+- [📄 Industry Standards Index](0-Resources/6-Industry-Standards/README.md)
 
 </details>
 
 <details>
 <summary>7-Videos</summary>
 
-- [HBM 原理详解（抖音）](0-Resources/7-Videos/hbm-principles-douyin.md) — Redknot-乔红：HBM 高带宽存储器原理动画讲解
 - [全网最详细的芯片制造全过程（抖音）](0-Resources/7-Videos/chip-manufacturing-process-douyin.md) — 大黄视界频道：从硅片到成品芯片的完整制造流程
+- [HBM 原理详解（抖音）](0-Resources/7-Videos/hbm-principles-douyin.md) — Redknot-乔红：HBM 高带宽存储器原理动画讲解
+- [📄 Videos Index](0-Resources/7-Videos/README.md)
 
 </details>
 
-[📋 Full Resource Index](0-Resources/0-Index.md)
+- [📋 Full Resource Index](0-Resources/0-Index.md)
 
 </details>
+<!-- BUILD:NAV:END -->
 
 <details open>
 <summary><b>📝 Personal Notes</b></summary>
@@ -215,8 +263,8 @@ ic-chip-design-learning/
 │   ├── 3-EDA-Tools/          # EDA tool notes (Synopsys, Cadence, Si2, etc.)
 │   ├── 4-OpenSource-Projects/# Open-source chip projects
 │   ├── 5-Courses-Tutorials/  # Online courses & tutorials
-│   └── 6-Industry-Standards/ # AMBA, UCIe, JEDEC, etc.
-│   ├── 7-Videos/             # Video explainers (Douyin/YouTube/etc.)
+│   ├── 6-Industry-Standards/ # AMBA, UCIe, JEDEC, etc.
+│   └── 7-Videos/             # Video explainers (Douyin/YouTube/etc.)
 ├── 1-Notes/                  # Personal study notes
 │   ├── 1-Digital-Design/    # Combinational/sequential, HDL, microarchitecture
 │   ├── 2-Analog-Design/     # Amplifiers, PLLs, ADCs/DACs, layout
@@ -235,55 +283,26 @@ ic-chip-design-learning/
 │   ├── accelerator/         # Domain-specific accelerator design
 │   ├── mixed-signal-soc/    # Mixed-signal SoC project
 │   └── tapeout-prep/        # Tapeout preparation checklist & GDS
-├── scripts/                  # Helper scripts
+├── assets/                   # README preview + roadmap SVGs (generated)
+├── scripts/                  # build.py / check_consistency.py / normalize_tags.py
+├── CONTRIBUTING.md           # How to add a resource / note / code example
 └── README.md
 ```
 
-## How to Update
+## 🤝 参与维护
 
-### Adding a New Resource (0-Resources/)
+新增资源只需要写**一个** `.md` 文件——`0-Index.md`、子目录表格、上面这份导航和
+网页索引全部由 `python scripts/build.py` 从 frontmatter 生成。
 
-1. Create a `.md` file in the correct subfolder (e.g. `0-Resources/3-EDA-Tools/synopsys-dc.md`)
-2. Start with this frontmatter:
-   ```markdown
-   ---
-   source: <original URL>
-   date: YYYY-MM-DD
-   tags: [tag1, tag2]
-   ---
-   ```
-3. Write the content: summary, key points, or full notes with source attribution
-4. End with: `_Last updated: YYYY-MM-DD_`
-5. Add it to the folder's `README.md` index
-6. Add it to the wiki nav in this file under `<details>`
-7. Add it to `0-Resources/0-Index.md`
-
-### Adding a New Note (1-Notes/)
-
-1. Create a `.md` file in the correct subfolder (e.g. `1-Notes/1-Digital-Design/fsm-design.md`)
-2. Start with the same frontmatter as above
-3. Write your personal understanding, code experiments, gotchas
-4. End with: `_Last updated: YYYY-MM-DD_`
-5. Add the link to the folder's `README.md` index
-6. Add the link to the wiki nav in this file
-
-### Adding to Code Examples (2-Code/)
-
-1. Create a subfolder: `2-Code/<project-name>/`
-2. Include: source file, `README.md`
-3. Add it to `2-Code/README.md`
-
-### Key Rules
-
-- **File names**: lowercase, hyphen-separated (e.g. `axi-bus-protocol.md`)
-- **Wiki nav**: every new file must be linked in this README
-- **Resource Index**: `0-Index.md` mirrors all resources — keep it in sync
-- **Always include `Last updated`**: every resource/note file ends with `_Last updated: YYYY-MM-DD_`
+完整流程与硬性规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## Changelog
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+<details>
+<summary>展开完整更新日志</summary>
+
 | 2026-10-31 | Added wave-mcp — 腾讯开源波形调试 MCP Server（37 工具 / FST 直读 / X 态追踪 / pass-fail diff），填补 3-EDA-Tools 分类 |
 | 2026-10-16 | Added 半導體製造概論 — chenwei810 913★ 制造全流程开放教材（24 章 + 术语/实务框，四语言） |
 | 2026-09-27 | Added HiEq · Layout 裸片图库 — 222 张处理器 die shot（25 家厂商、标注工艺节点），在线浏览与原图下载 |
@@ -292,12 +311,14 @@ ic-chip-design-learning/
 | 2026-08-01 | Added 7-Videos category: HBM 原理详解 / 芯片制造全过程（抖音视频笔记） |
 | 2026-07-28 | Added 一生一芯（One Student One Chip）— 中科院计算所 RISC-V 处理器芯片全流程设计培养计划 |
 | 2026-07-02 | Added Bits on Chips（芯片上的比特，第3版）— Veendrick 著，Springer 集成电路通识导论 |
-| 2026-03-31 | Repository init, directory structure, wiki nav|
-| 2026-03-31 | Added note template                           |
-| 2026-04-03 | Added CUDA Programming Guide                  |
-| 2026-04-22 | Added CA: Quantitative Approach 学习笔记 — Cache/Memory Hierarchy |
-| 2026-04-26 | Added Linux C编程一站式学习 — C 语言 + Linux 系统编程 |
+| 2026-06-09 | Added 计算机体系结构「森林导览」— 87页综述，附PDF |
+| 2026-06-05 | Added 光通信器件原理科普 — 从能级跃迁到硅光芯片 |
 | 2026-05-29 | Added NEORV32 RISC-V SoC 开源项目 |
 | 2026-05-29 | Added XUANTIE-RV 玄铁 RISC-V 开源生态 |
-| 2026-06-05 | Added 光通信器件原理科普 — 从能级跃迁到硅光芯片 |
-| 2026-06-09 | Added 计算机体系结构「森林导览」— 87页综述，附PDF |
+| 2026-04-26 | Added Linux C编程一站式学习 — C 语言 + Linux 系统编程 |
+| 2026-04-22 | Added CA: Quantitative Approach 学习笔记 — Cache/Memory Hierarchy |
+| 2026-04-03 | Added CUDA Programming Guide                  |
+| 2026-03-31 | Repository init, directory structure, wiki nav|
+| 2026-03-31 | Added note template                           |
+
+</details>

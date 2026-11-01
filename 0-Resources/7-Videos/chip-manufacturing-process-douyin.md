@@ -1,11 +1,12 @@
 ---
+title: 全网最详细的芯片制造全过程（抖音）
+summary: 大黄视界频道：从硅片到成品芯片的完整制造流程
 source: https://v.douyin.com/PdPM3UJ_Agc/
 date: 2026-06-25
-tags: [chip-manufacturing, fabrication, process, semiconductor, video, douyin]
+tags: [semiconductor, video]
 links:
   - https://v.douyin.com/PdPM3UJ_Agc/
 ---
-
 # 全网最详细的芯片制造全过程
 
 **来源**: 抖音 - 大黄视界频道  

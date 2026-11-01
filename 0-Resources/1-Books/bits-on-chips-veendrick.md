@@ -1,9 +1,10 @@
 ---
+title: Bits on Chips（芯片上的比特，第3版）
+summary: Veendrick 著，Springer 集成电路通识导论，覆盖设计/制造/应用全链条（含 2nm 节点）
 source: https://link.springer.com/content/pdf/10.1007/978-3-032-19350-6.pdf
 date: 2026-07-02
-tags: [微电子, 集成电路, 芯片, 半导体, cmos, 教材, pdf]
+tags: [semiconductor, cmos, book, pdf]
 ---
-
 # Bits on Chips（芯片上的比特）· 第 3 版
 
 > Harry Veendrick · Springer · 2026-07-02（第 3 版）· 英文原版

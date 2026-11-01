@@ -20,22 +20,23 @@ import pathlib
 import subprocess
 
 
-def generated_date() -> str:
-    """Stable 'last updated' date from the 0-Index.md `_Last updated` footer.
+def generated_date(index_text: str) -> str:
+    """Stable 'last updated' date = newest resource date in 0-Index.md.
 
-    The footer is hand-maintained and changes together with resource content,
-    so reading it (instead of git history or today()) makes regeneration
-    byte-identical no matter when/where it runs (local before commit, CI after
-    commit). This is what keeps the CI auto-commit loop-free and noise-free.
+    Derived from the data itself instead of a hand-maintained footer, so adding
+    a resource with a new `date:` bumps it automatically — no manual step to
+    forget. Still deterministic (no today()/git history), which is what keeps
+    the CI auto-commit byte-identical and loop-free.
     """
-    try:
-        idx = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
-        m = re.search(r"_Last updated:\s*(\d{4}-\d{2}-\d{2})_", idx)
-        if m:
-            return m.group(1)
-    except Exception:
-        pass
-    return datetime.date.today().isoformat()
+    dates = []
+    for line in index_text.splitlines():
+        s = line.strip()
+        if not (s.startswith("|") and "](" in s):
+            continue
+        cells = [c.strip() for c in s.strip("|").split("|")]
+        if len(cells) >= 3 and re.fullmatch(r"\d{4}-\d{2}-\d{2}", cells[2]):
+            dates.append(cells[2])
+    return max(dates) if dates else datetime.date.today().isoformat()
 
 REPO = "70asunflower/ic-chip-design-learning"
 BRANCH = "master"  # default branch of this repo
@@ -46,9 +47,8 @@ SIBLINGS = [
 ]
 
 TITLE = "IC Chip Design Learning"
+SUBTITLE = "个人芯片设计学习路径 · 精选资源 / 笔记 / 项目实战"
 
-readme = (ROOT / "README.md").read_text(encoding="utf-8")
-index_md = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
 # Inline marked.js so the page works fully offline / behind GFW (no CDN dependency).
 MARKED_JS = r"""/**
  * marked v12.0.2 - a markdown parser
@@ -74,88 +74,88 @@ def prettify(cat: str) -> str:
     return cat.replace("-", " ").strip()
 
 
-# ---- 1. tags + date from 0-Index.md (table: | [Name](path) | #tags | date |) ----
-tags_by_path: dict[str, list[str]] = {}
-dates_by_path: dict[str, str] = {}
-for line in index_md.splitlines():
-    if not (line.strip().startswith("|") and "](" in line):
-        continue
-    cells = [c.strip() for c in line.strip().strip("|").split("|")]
-    if len(cells) < 2:
-        continue
-    lm = re.search(r"\]\(([^)]+)\)", cells[0])
-    if not lm:
-        continue
-    path = normalize(lm.group(1))
-    tags = re.findall(r"#([\w\-.]+)", cells[1])
-    tags_by_path[path] = tags
-    if len(cells) >= 3:
-        dates_by_path[path] = cells[2].strip()
+def parse_index(index_md: str) -> dict[str, dict]:
+    """0-Index.md table -> {normalized path: {"tags": [...], "date": "YYYY-MM-DD"}}."""
+    info: dict[str, dict] = {}
+    for line in index_md.splitlines():
+        if not (line.strip().startswith("|") and "](" in line):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 2:
+            continue
+        lm = re.search(r"\]\(([^)]+)\)", cells[0])
+        if not lm:
+            continue
+        info[normalize(lm.group(1))] = {
+            "tags": re.findall(r"#([\w\-.]+)", cells[1]),
+            "date": cells[2].strip() if len(cells) >= 3 else "",
+        }
+    return info
 
 
-# ---- 2. resources from README.md (inside 📚 Resources block) ----
-categories: list[dict] = []
-cat_map: dict[str, list[dict]] = {}
-stack: list[str | None] = []
+def parse_nav(readme: str, index_info: dict[str, dict]) -> list[dict]:
+    """Walk the `📚 Resources` <details> tree of README.md into category buckets."""
+    categories: list[dict] = []
+    cat_map: dict[str, list[dict]] = {}
+    stack: list[str | None] = []
 
-for line in readme.splitlines():
-    s = line.strip()
-    if s.startswith("<details"):
-        stack.append(None)
-        continue
-    m = re.match(r"<summary>(.*?)</summary>", s)
-    if m:
-        stack[-1] = re.sub(r"<[^>]+>", "", m.group(1)).strip()
-        continue
-    if s == "</details>":
-        if stack:
-            stack.pop()
-        continue
-    if not stack or "Resources" not in (stack[0] or ""):
-        continue
-    cat = next((x for x in reversed(stack) if x and re.match(r"^\d+-", x)), None)
-    if not cat:
-        continue
-    lm = re.search(r"\[([^\]]+)\]\(([^)]+)\)", line)
-    if not lm:
-        continue
-    title = lm.group(1).strip()
-    url = lm.group(2).strip()
-    desc = re.sub(r"^[\s—\-–]+", "", line[lm.end():].strip())
+    for line in readme.splitlines():
+        s = line.strip()
+        if s.startswith("<details"):
+            stack.append(None)
+            continue
+        m = re.match(r"<summary>(.*?)</summary>", s)
+        if m:
+            stack[-1] = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+            continue
+        if s == "</details>":
+            if stack:
+                stack.pop()
+            continue
+        if not stack or "Resources" not in (stack[0] or ""):
+            continue
+        cat = next((x for x in reversed(stack) if x and re.match(r"^\d+-", x)), None)
+        if not cat:
+            continue
+        lm = re.search(r"\[([^\]]+)\]\(([^)]+)\)", line)
+        if not lm:
+            continue
+        title = lm.group(1).strip()
+        url = lm.group(2).strip()
+        desc = re.sub(r"^[\s—\-–]+", "", line[lm.end():].strip())
 
-    # classify link: internal (repo .md) vs external
-    if url.startswith(("http://", "https://")):
-        if url.startswith(BLOB):
-            path = url[len(BLOB):]
-            external = False
+        # classify link: internal (repo .md) vs external
+        if url.startswith(("http://", "https://")):
+            if url.startswith(BLOB):
+                path, external = url[len(BLOB):], False
+            else:
+                path, external = url, True
+            github = url
         else:
-            path = url
-            external = True
-        github = url
-    else:
-        path = url
-        external = False
-        github = BLOB + url
+            path, external, github = url, False, BLOB + url
 
-    tags = tags_by_path.get(normalize(url), [])
-    is_index = title.startswith(("📄", "📋", "📁"))
-    name = prettify(cat)
-    if name not in cat_map:
-        items: list[dict] = []
-        cat_map[name] = items
-        categories.append({"name": name, "items": items})
-    cat_map[name].append(
-        {"title": title, "path": path, "github": github, "external": external,
-         "desc": desc, "tags": tags, "index": is_index,
-         "date": dates_by_path.get(normalize(url), "")}
-    )
+        meta = index_info.get(normalize(url), {})
+        is_index = title.startswith(("📄", "📋", "📁"))
+        name = prettify(cat)
+        if name not in cat_map:
+            items: list[dict] = []
+            cat_map[name] = items
+            categories.append({"name": name, "items": items})
+        cat_map[name].append(
+            {"title": title, "path": path, "github": github, "external": external,
+             "desc": desc, "tags": meta.get("tags", []), "index": is_index,
+             "date": meta.get("date", "")}
+        )
+    return categories
 
-data = {
-    "repo": REPO,
-    "branch": BRANCH,
-    "generated": generated_date(),
-    "categories": categories,
-}
+
+def build_data(readme: str, index_md: str) -> dict:
+    return {
+        "repo": REPO,
+        "branch": BRANCH,
+        "generated": generated_date(index_md),
+        "categories": parse_nav(readme, parse_index(index_md)),
+    }
 
 HTML = r"""<!DOCTYPE html>
 <html lang="zh">
@@ -236,6 +236,10 @@ header{border-bottom:1px solid var(--border);background:var(--panel);position:st
 .stats{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);padding:0 0 12px}
 .stats b{color:var(--text);font-weight:600;margin-right:3px}
 .chip.more{color:var(--accent);border-style:dashed}
+/* collapsed overflow chips must become direct flex items when shown, otherwise
+   they render as a borderless inline run with no gap between them */
+.tag-rest{display:none}
+.tag-rest.open{display:contents}
 #tagbar{display:flex;flex-wrap:wrap;gap:7px;padding:12px 0 16px;
   max-height:118px;overflow-y:auto;transition:max-height .3s ease}
 #tagbar.collapsed{max-height:0;overflow:hidden;padding:0}
@@ -368,7 +372,7 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
     <div class="h-top">
       <div>
         <h1>__TITLE__ · Resource Index</h1>
-        <div class="sub">个人 IC 芯片设计学习路径 · 精选资源 / 笔记 / 项目实战</div>
+        <div class="sub">__SUBTITLE__</div>
       </div>
       <a class="live" href="__LIVE__" target="_blank" rel="noopener">仓库 README</a>
       <span class="spacer"></span>
@@ -398,7 +402,7 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
   <div class="empty" id="empty" style="display:none">没有匹配的资源</div>
 </main>
 <footer class="wrap">
-  由 <code>scripts/generate_index.py</code> 从 README.md 自动生成 · 最后更新 __DATE__<br>
+  由 <code>scripts/build.py</code> 从资源 frontmatter 自动生成 · 最后更新 __DATE__<br>
   点击任意资源即可在本页阅读内容 · 添加资源后改 README，重跑脚本即同步
 </footer>
 
@@ -443,7 +447,7 @@ const tagCounts = {};
 DATA.categories.forEach(c => c.items.forEach(it => it.tags.forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; })));
 const sortedTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a] || a.localeCompare(b));
 
-const CAT_COLORS = { "books": "#2f6df6", "papers": "#d9730d", "eda tools": "#0a7d3b", "opensource projects": "#8250df", "courses tutorials": "#cf222e", "industry standards": "#1a7f64", "videos": "#bf3989" };
+const CAT_COLORS = { "books": "#2f6df6", "papers": "#d9730d", "eda tools": "#0a7d3b", "open source projects": "#8250df", "courses & tutorials": "#cf222e", "industry standards": "#1a7f64", "videos": "#bf3989" };
 function catColor(name) { return CAT_COLORS[(name || "").toLowerCase()] || "var(--accent)"; }
 
 const app = document.getElementById("app");
@@ -497,9 +501,10 @@ function cardHTML(it, cat) {
 }
 
 function visible(it) {
-  const q = state.q;
+  const terms = state.q ? state.q.split(/\s+/).filter(Boolean) : [];
   const txt = (it.title + " " + it.desc + " " + it.tags.join(" ") + " " + (it.github || "")).toLowerCase();
-  const okQ = !q || txt.includes(q);
+  /* space-separated terms are ANDed, matching how hi() highlights them */
+  const okQ = terms.every(t => txt.includes(t));
   const okT = state.tags.size === 0 ||
     (state.tagMode === "and" ? [...state.tags].every(t => it.tags.includes(t)) : it.tags.some(t => state.tags.has(t)));
   return okQ && okT;
@@ -517,16 +522,15 @@ function renderTags() {
   let html = top.map(chipHTML).join("");
   if (rest.length) {
     html += `<span class="chip more" data-more="1" title="展开全部标签">更多 ${rest.length} ▾</span>`;
-    html += `<span class="tag-rest" style="display:none">${rest.map(chipHTML).join("")}</span>`;
+    html += `<span class="tag-rest">${rest.map(chipHTML).join("")}</span>`;
   }
   tagbar.innerHTML = html;
   tagbar.querySelectorAll(".chip").forEach(el => {
     if (el.dataset.more) {
       el.onclick = () => {
         const restEl = tagbar.querySelector(".tag-rest");
-        const open = restEl.style.display !== "none";
-        restEl.style.display = open ? "none" : "inline";
-        el.textContent = open ? `更多 ${rest.length} ▾` : "收起 ▴";
+        const open = restEl.classList.toggle("open");
+        el.textContent = open ? "收起 ▴" : `更多 ${rest.length} ▾`;
       };
     } else {
       el.onclick = () => {
@@ -548,7 +552,10 @@ function render() {
     else if (state.sort === "name") items = items.slice().sort((a, b) => a.title.localeCompare(b.title));
     if (!items.length) return;
     total += items.length;
-    html += `<section class="sec" style="--cat:${catColor(c.name)}"><h2>${esc(c.name)}<span class="cnt">${items.length}</span></h2>
+    /* 📄/📋 index cards are navigation, not resources — don't count them */
+    const nReal = items.filter(it => !it.index).length;
+    const cnt = nReal ? `<span class="cnt">${nReal}</span>` : "";
+    html += `<section class="sec" style="--cat:${catColor(c.name)}"><h2>${esc(c.name)}${cnt}</h2>
       <div class="grid">${items.map(it => cardHTML(it, catColor(c.name))).join("")}</div></section>`;
   });
   app.innerHTML = html;
@@ -570,8 +577,8 @@ function render() {
 /* if an active chip ended up inside the collapsed "更多" section, expand it */
 function ensureActiveChipsVisible() {
   const restEl = tagbar.querySelector(".tag-rest");
-  if (restEl && restEl.style.display === "none" && restEl.querySelector(".chip.active")) {
-    restEl.style.display = "inline";
+  if (restEl && !restEl.classList.contains("open") && restEl.querySelector(".chip.active")) {
+    restEl.classList.add("open");
     const moreBtn = tagbar.querySelector("[data-more]");
     if (moreBtn) moreBtn.textContent = "收起 ▴";
   }
@@ -847,7 +854,7 @@ window.addEventListener("keydown", e => {
 if (isFileProtocol()) { const fw = document.getElementById("filewarn"); if (fw) fw.style.display = "block"; }
 const statsEl = document.getElementById("stats");
 if (statsEl) {
-  const totalItems = DATA.categories.reduce((s, c) => s + c.items.length, 0);
+  const totalItems = DATA.categories.reduce((s, c) => s + c.items.filter(it => !it.index).length, 0);
   statsEl.innerHTML = `<span><b>${totalItems}</b> 资源</span><span><b>${sortedTags.length}</b> 标签</span><span><b>${DATA.generated}</b> 更新</span>`;
 }
 /* restore UI state from URL (search box value, active sort button, tag-mode label) */
@@ -859,25 +866,44 @@ if (statsEl) {
   } catch (e) {}
 })();
 renderTags();
+ensureActiveChipsVisible();  /* deep link may activate a tag hidden behind 更多 */
 render();
 </script>
 </body>
 </html>
 """
 
-html = (HTML
-        .replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
-        .replace("__DATE__", data["generated"])
-        .replace("__LIVE__", BLOB + "README.md")
-        .replace("__SIBLINGS__", "".join(
-            f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
-            for s in SIBLINGS))
-        .replace("__TITLE__", TITLE)
-        .replace("__PAGES_URL__", PAGES_URL)
-        .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
+def render_html(data: dict) -> str:
+    return (HTML
+            .replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
+            .replace("__DATE__", data["generated"])
+            .replace("__LIVE__", BLOB + "README.md")
+            .replace("__SIBLINGS__", "".join(
+                f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
+                for s in SIBLINGS))
+            .replace("__TITLE__", TITLE)
+            .replace("__SUBTITLE__", SUBTITLE)
+            .replace("__PAGES_URL__", PAGES_URL)
+            .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
 
-out = ROOT / "index.html"
-out.write_text(html, encoding="utf-8", newline="\n")
-n_items = sum(len(c["items"]) for c in categories)
-n_tags = len({t for c in categories for it in c["items"] for t in it["tags"]})
-print(f"Wrote {out} — {len(categories)} categories, {n_items} items, {n_tags} tags")
+
+def build(readme: str, index_md: str) -> str:
+    """Return the index.html text for the given README + 0-Index content."""
+    return render_html(build_data(readme, index_md))
+
+
+def main() -> str:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    index_md = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
+    html = build(readme, index_md)
+    out = ROOT / "index.html"
+    out.write_text(html, encoding="utf-8", newline="\n")
+    data = build_data(readme, index_md)
+    n_items = sum(len(c["items"]) for c in data["categories"])
+    n_tags = len({t for c in data["categories"] for it in c["items"] for t in it["tags"]})
+    print(f"Wrote {out} — {len(data['categories'])} categories, {n_items} items, {n_tags} tags")
+    return html
+
+
+if __name__ == "__main__":
+    main()

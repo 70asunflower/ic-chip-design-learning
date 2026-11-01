@@ -1,12 +1,13 @@
 ---
+title: RISC-V Vector Primer (RVV 1.0 指南)
+summary: 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension
 source: https://github.com/simplex-micro/riscv-vector-primer
 date: 2026-08-23
-tags: [risc-v, rvv, vector, matrix-extension, vector-processor, cpu-design, compiler, gemm, ai, architecture]
+tags: [risc-v, vector, computer-architecture, compiler, kernel, ai]
 links:
   - https://github.com/simplex-micro/riscv-vector-primer
   - https://mp.weixin.qq.com/s?__biz=MjM5NDczOTA4NQ==&mid=2447904731&idx=1&sn=5f64137c90261c786a381ccccde5f61a
 ---
-
 # RISC-V Vector Primer (RVV 1.0 指南)
 
 > 一本面向**硬件架构师、编译器工程师与嵌入式/边缘 AI 开发者**的 RVV 实践指南。核心主张：把 RISC-V Vector Extension 从「一堆术语」翻译成「可被工程师操作的心智模型」，并延伸到新兴的 Matrix Extension。

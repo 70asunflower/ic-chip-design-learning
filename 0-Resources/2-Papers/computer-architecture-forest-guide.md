@@ -1,9 +1,10 @@
 ---
+title: 计算机体系结构「森林导览」
+summary: 87页研一综述：从通用处理器到 LLM/Tansformer 加速、Chiplet、神经形态/量子/光子，附PDF
 source: null
 date: 2026-06-09
-tags: [computer-architecture, survey, cpu, gpu, dsa, memory-hierarchy, chiplet]
+tags: [computer-architecture, paper, cpu, gpu, dsa, memory, chiplet]
 ---
-
 # 计算机体系结构「森林导览」
 
 > 一篇面向研一新生的计算机体系结构综述——"地图式"体例，从通用处理器到新兴范式

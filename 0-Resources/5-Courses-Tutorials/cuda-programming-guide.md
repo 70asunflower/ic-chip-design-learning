@@ -1,9 +1,10 @@
 ---
+title: CUDA Programming Guide
+summary: NVIDIA 官方 GPU 并行编程模型文档
 source: https://docs.nvidia.com/cuda/cuda-programming-guide/
 date: 2026-04-03
-tags: [cuda, nvidia, gpu, parallel-computing, programming-model]
+tags: [cuda, gpu]
 ---
-
 # CUDA Programming Guide
 
 ## 核心要点（摘要）

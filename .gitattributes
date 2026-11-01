@@ -1,0 +1,4 @@
+# Normalize line endings to LF across the repo.
+# The generators write LF; without this, a Windows checkout gets CRLF and every
+# `build.py` run produces a whole-file diff.
+* text=auto eol=lf

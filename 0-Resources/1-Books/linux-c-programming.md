@@ -1,9 +1,10 @@
 ---
+title: Linux C编程一站式学习
+summary: C 语言 + Linux 系统编程一站式覆盖（宋劲杉）
 source: D:\e-Books\Linux C编程一站式学习.pdf
 date: 2026-04-26
-tags: [linux, c, programming, systems, textbook]
+tags: [linux, c, programming, systems, book]
 ---
-
 # Linux C编程一站式学习
 
 ## 核心要点（摘要）

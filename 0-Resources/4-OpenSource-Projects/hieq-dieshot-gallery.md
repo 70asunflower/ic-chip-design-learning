@@ -1,12 +1,13 @@
 ---
+title: HiEq · Layout 裸片图库
+summary: 222 张处理器 die shot（25 家厂商、标注工艺节点），在线浏览与原图下载
 source: https://hieq-home404.pages.dev/#/layout
 date: 2026-09-27
-tags: [dieshot, layout, chip-images, intel, amd, apple-silicon, nvidia, qualcomm, hisilicon, process-node, reference, gallery]
+tags: [dieshot, layout, intel, amd, apple-silicon, gpu, qualcomm, hisilicon, semiconductor, reference]
 links:
   - https://hieq-home404.pages.dev/#/layout
   - https://github.com/HiEq/Dieshot
 ---
-
 # HiEq · Layout — Die Shot 裸片图库
 
 > 个人维护的**处理器芯片裸片显微图（die shot）在线图库**：222 张高清裸片图，覆盖 **25 家厂商**，每张标注**工艺节点**（desc 字段，如 TSMC N3P / GlobalFoundries 14nm / IBM 32nm SOI），支持在线浏览与原图直下。图床与清单完全开源（[HiEq/Dieshot](https://github.com/HiEq/Dieshot)，manifest 为 `gallery.json`），站点部署在 Cloudflare Pages。

@@ -1,13 +1,14 @@
 ---
+title: 一生一芯（One Student One Chip）
+summary: 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片
 source: https://ysyx.oscc.cc
 date: 2026-07-28
-tags: [risc-v, processor, cpu-design, rtl, verilog, chisel, tapeout, open-source-eda, computer-architecture, education]
+tags: [risc-v, processor, computer-architecture, rtl, verilog, chisel, tapeout, open-source-eda, education]
 links:
   - https://ysyx.oscc.cc/docs/2205/schedule-origin.html
   - https://space.bilibili.com/2107852263
   - https://github.com/PKUFlyingPig/cs-self-learning/blob/master/docs/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/YSYX.md
 ---
-
 # 一生一芯（One Student One Chip）
 
 > 由中国科学院大学 / 中国科学院计算技术研究所于 2019 年发起的 chip 设计人才培养计划。指导学生**从零设计一款 RISC-V 处理器芯片**，在其上运行自己开发的系统软件与演示程序，并通过开源 EDA 工具与开源 PDK 完成物理设计流程、最终流片。

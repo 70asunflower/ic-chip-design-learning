@@ -1,12 +1,13 @@
 ---
+title: nano-kpu
+summary: MoonshotAI：Kimi-K3 全流程设计的推理芯片 RTL（KDA 线性注意力 + MLA + MoE，int4），带完整仿真与综合流程
 source: https://github.com/MoonshotAI/nano-kpu
 date: 2026-09-16
-tags: [rtl, verilog, inference-chip, accelerator, moe, mla, linear-attention, quantization, int4, verilator, yosys, openroad, nangate45, ai-designed, open-source]
+tags: [rtl, verilog, inference-chip, accelerator, moe, mla, linear-attention, quantization, open-source-eda, ai-designed, open-source]
 links:
   - https://github.com/MoonshotAI/nano-kpu
   - https://github.com/MoonshotAI/nano-kpu/blob/main/README_CN.md
 ---
-
 # nano-kpu（MoonshotAI）
 
 > nano 级**混合架构推理芯片**的完整 RTL 设计 + 功能仿真 + 时序/面积评估流程，**由 Kimi-K3 全程设计实现**（仓库自述为 Kimi K3 的演示，非 Moonshot AI 官方项目）。Apache 2.0。目标模型是混合注意力 MoE transformer：**KDA（Kimi Delta Attention）线性注意力 + NoPE MLA + sigmoid-routed MoE（top-2 路由专家 + 1 共享专家）+ attention-residual mixing**，权重 int4 group-128，teacher-forced 逐 token 解码。
