@@ -78,9 +78,12 @@ ROADMAP = [
     {"track": "体系结构", "items": [
         "0-Resources/1-Books/computer-architecture-quantitative-approach.md",
         "0-Resources/2-Papers/computer-architecture-forest-guide.md",
+        "0-Resources/6-Industry-Standards/riscv-specifications-library.md",
     ]},
     {"track": "处理器设计", "items": [
         "0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md",
+        "0-Resources/5-Courses-Tutorials/xv6-riscv.md",
+        "0-Resources/5-Courses-Tutorials/xv6-riscv-book.md",
         "0-Resources/5-Courses-Tutorials/riscv-vector-primer.md",
         "0-Resources/4-OpenSource-Projects/neorv32.md",
         "0-Resources/4-OpenSource-Projects/xuantie-rv.md",
@@ -369,7 +372,8 @@ SKILLTREE = {
             "0-Resources/1-Books/linux-c-programming.md"]},
         {"name": "计算机体系结构", "items": [
             "0-Resources/1-Books/computer-architecture-quantitative-approach.md",
-            "0-Resources/2-Papers/computer-architecture-forest-guide.md"]},
+            "0-Resources/2-Papers/computer-architecture-forest-guide.md",
+            "0-Resources/6-Industry-Standards/riscv-specifications-library.md"]},
         {"name": "集成电路通识", "items": [
             "0-Resources/1-Books/bits-on-chips-veendrick.md",
             "0-Resources/5-Courses-Tutorials/branch-education-ic-series.md",
@@ -382,7 +386,9 @@ SKILLTREE = {
                 "0-Resources/4-OpenSource-Projects/neorv32.md",
                 "0-Resources/4-OpenSource-Projects/xuantie-rv.md"]},
             {"name": "RISC-V 实现", "items": [
-                "0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md"]},
+                "0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md",
+                "0-Resources/5-Courses-Tutorials/xv6-riscv.md",
+                "0-Resources/5-Courses-Tutorials/xv6-riscv-book.md"]},
             {"name": "向量扩展 RVV", "items": [
                 "0-Resources/5-Courses-Tutorials/riscv-vector-primer.md"]},
         ]},

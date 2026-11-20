@@ -42,10 +42,14 @@ Quick-lookup index for all collected resources.
 | [Branch Education IC 系列](5-Courses-Tutorials/branch-education-ic-series.md) | `#branch-education #video #semiconductor #lithography #computer-architecture` | 2026-06-29 |
 | [一生一芯（One Student One Chip）](5-Courses-Tutorials/ysyx-one-student-one-chip.md) | `#risc-v #processor #computer-architecture #rtl #verilog #chisel #tapeout #open-source-eda #education` | 2026-07-28 |
 | [RISC-V Vector Primer (RVV 1.0 指南)](5-Courses-Tutorials/riscv-vector-primer.md) | `#risc-v #vector #computer-architecture #compiler #kernel #ai` | 2026-08-23 |
+| [xv6-riscv Book（教学操作系统教材）](5-Courses-Tutorials/xv6-riscv-book.md) | `#risc-v #operating-system #book #education #mit` | 2026-11-19 |
+| [xv6-riscv（MIT 教学操作系统）](5-Courses-Tutorials/xv6-riscv.md) | `#risc-v #operating-system #teaching #c #open-source #mit` | 2026-11-19 |
 
 ## Industry Standards
 
-_Empty — add your first industry standard!_
+| Resource | Tags | Date |
+|----------|------|------|
+| [RISC-V 规范库（Ratified Specifications Library）](6-Industry-Standards/riscv-specifications-library.md) | `#risc-v #isa #specification #platform #reference` | 2026-11-20 |
 
 ## Videos
 

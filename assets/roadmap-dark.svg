@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="学习地图：按学习顺序分轨列出全部资源" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
 <rect width="900" height="520" rx="14" fill="#101011" stroke="#2c2c30"/>
 <text x="26" y="42" font-size="17" font-weight="650" fill="#e9e9e7">学习地图</text>
-<text x="26" y="64" font-size="12.5" fill="#a6a6a6">按轨道分组，组内从左到右是建议阅读顺序 · 全部 18 份资源</text>
+<text x="26" y="64" font-size="12.5" fill="#a6a6a6">按轨道分组，组内从左到右是建议阅读顺序 · 全部 21 份资源</text>
 <line x1="26" y1="80" x2="874" y2="80" stroke="#232327"/>
 <circle cx="31" cy="122.0" r="3.5" fill="#6f9bf2"/>
 <text x="42" y="126.5" font-size="12.5" font-weight="600" fill="#e9e9e7">认识芯片</text>
@@ -41,24 +41,36 @@
 <circle cx="345.3" cy="230.0" r="7.5" fill="#b18aff" fill-opacity="0.16"/>
 <text x="345.3" y="233.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#b18aff">2</text>
 <text x="358.3" y="234.2" font-size="11.5" fill="#e9e9e7">计算机体系结构「森林导览」</text>
+<rect x="527.8" y="216" width="118.8" height="28" rx="14" fill="#1b1b1d" stroke="#b18aff" stroke-opacity="0.45"/>
+<circle cx="542.8" cy="230.0" r="7.5" fill="#b18aff" fill-opacity="0.16"/>
+<text x="542.8" y="233.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#b18aff">3</text>
+<text x="555.8" y="234.2" font-size="11.5" fill="#e9e9e7">RISC-V 规范库</text>
 <circle cx="31" cy="284.0" r="3.5" fill="#e8913a"/>
 <text x="42" y="288.5" font-size="12.5" font-weight="600" fill="#e9e9e7">处理器设计</text>
 <rect x="188.0" y="270" width="86.0" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
 <circle cx="203.0" cy="284.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
 <text x="203.0" y="287.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">1</text>
 <text x="216.0" y="288.2" font-size="11.5" fill="#e9e9e7">一生一芯</text>
-<rect x="282.0" y="270" width="113.6" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
+<rect x="282.0" y="270" width="96.9" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
 <circle cx="297.0" cy="284.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
 <text x="297.0" y="287.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">2</text>
-<text x="310.0" y="288.2" font-size="11.5" fill="#e9e9e7">RVV 1.0 指南</text>
-<rect x="403.6" y="270" width="84.3" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
-<circle cx="418.6" cy="284.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
-<text x="418.6" y="287.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">3</text>
-<text x="431.6" y="288.2" font-size="11.5" fill="#e9e9e7">NEORV32</text>
-<rect x="495.9" y="270" width="132.6" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
-<circle cx="510.9" cy="284.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
-<text x="510.9" y="287.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">4</text>
-<text x="523.9" y="288.2" font-size="11.5" fill="#e9e9e7">XUANTIE-RV 玄铁</text>
+<text x="310.0" y="288.2" font-size="11.5" fill="#e9e9e7">xv6-riscv</text>
+<rect x="386.9" y="270" width="128.6" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
+<circle cx="401.9" cy="284.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
+<text x="401.9" y="287.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">3</text>
+<text x="414.9" y="288.2" font-size="11.5" fill="#e9e9e7">xv6-riscv Book</text>
+<rect x="523.5" y="270" width="113.6" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
+<circle cx="538.5" cy="284.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
+<text x="538.5" y="287.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">4</text>
+<text x="551.5" y="288.2" font-size="11.5" fill="#e9e9e7">RVV 1.0 指南</text>
+<rect x="645.1" y="270" width="84.3" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
+<circle cx="660.1" cy="284.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
+<text x="660.1" y="287.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">5</text>
+<text x="673.1" y="288.2" font-size="11.5" fill="#e9e9e7">NEORV32</text>
+<rect x="737.4" y="270" width="132.6" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
+<circle cx="752.4" cy="284.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
+<text x="752.4" y="287.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">6</text>
+<text x="765.4" y="288.2" font-size="11.5" fill="#e9e9e7">XUANTIE-RV 玄铁</text>
 <circle cx="31" cy="338.0" r="3.5" fill="#ff7b72"/>
 <text x="42" y="342.5" font-size="12.5" font-weight="600" fill="#e9e9e7">AI 芯片与 GPU</text>
 <rect x="188.0" y="324" width="179.2" height="28" rx="14" fill="#1b1b1d" stroke="#ff7b72" stroke-opacity="0.45"/>

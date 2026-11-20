@@ -11,6 +11,8 @@ Online courses, tutorials, and lecture series.
 | [Branch Education IC 系列](branch-education-ic-series.md) | 3D 动画科普：光刻→芯片制造→CPU 架构 | 2026-06-29 |
 | [一生一芯（One Student One Chip）](ysyx-one-student-one-chip.md) | 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片 | 2026-07-28 |
 | [RISC-V Vector Primer (RVV 1.0 指南)](riscv-vector-primer.md) | 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension | 2026-08-23 |
+| [xv6-riscv Book（教学操作系统教材）](xv6-riscv-book.md) | Russ Cox 等著的操作系统教材，逐章拆解 xv6-riscv 源码，MIT 6.828/6.1810 指定用书，在线免费读 | 2026-11-19 |
+| [xv6-riscv（MIT 教学操作系统）](xv6-riscv.md) | MIT PDOS 出品的 RISC-V 教学操作系统，Unix v6 的 ANSI C 重实现，配套 6.1810 课程，10.8k 星 | 2026-11-19 |
 <!-- BUILD:TABLE:END -->
 
 _表格由 `scripts/build.py` 从各课程 `.md` 的 frontmatter 生成，不要手改。_

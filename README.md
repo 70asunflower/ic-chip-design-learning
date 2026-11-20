@@ -44,14 +44,14 @@
 **基础层**（所有方向的共同基础）
 
 - C / Linux 系统编程 — [Linux C编程一站式学习](0-Resources/1-Books/linux-c-programming.md)
-- 计算机体系结构 — [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/computer-architecture-quantitative-approach.md) · [计算机体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md)
+- 计算机体系结构 — [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/computer-architecture-quantitative-approach.md) · [计算机体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md) · [RISC-V 规范库（Ratified Specifications Library）](0-Resources/6-Industry-Standards/riscv-specifications-library.md)
 - 集成电路通识 — [Bits on Chips（芯片上的比特，第3版）](0-Resources/1-Books/bits-on-chips-veendrick.md) · [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) · [全网最详细的芯片制造全过程（抖音）](0-Resources/7-Videos/chip-manufacturing-process-douyin.md)
 - 半导体物理与器件 — _待补充_
 
 **数字设计**
 
 - RTL / HDL — [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) · [XUANTIE-RV 玄铁](0-Resources/4-OpenSource-Projects/xuantie-rv.md)
-- RISC-V 实现 — [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md)
+- RISC-V 实现 — [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) · [xv6-riscv（MIT 教学操作系统）](0-Resources/5-Courses-Tutorials/xv6-riscv.md) · [xv6-riscv Book（教学操作系统教材）](0-Resources/5-Courses-Tutorials/xv6-riscv-book.md)
 - 向量扩展 RVV — [RISC-V Vector Primer (RVV 1.0 指南)](0-Resources/5-Courses-Tutorials/riscv-vector-primer.md)
 
 **AI 芯片**
@@ -120,10 +120,13 @@
 
 - [Computer Architecture: A Quantitative Approach](0-Resources/1-Books/computer-architecture-quantitative-approach.md) — Hennessy & Patterson 体系结构经典教材（含学习笔记链接）
 - [计算机体系结构「森林导览」](0-Resources/2-Papers/computer-architecture-forest-guide.md) — 87页研一综述：从通用处理器到 LLM/Tansformer 加速、Chiplet、神经形态/量子/光子，附PDF
+- [RISC-V 规范库（Ratified Specifications Library）](0-Resources/6-Industry-Standards/riscv-specifications-library.md) — RISC-V International 官方规范库，ISA/配置集/平台/软件全部批准规范 HTML+PDF 一站式查阅
 
 **4. 处理器设计**
 
 - [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) — 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片
+- [xv6-riscv（MIT 教学操作系统）](0-Resources/5-Courses-Tutorials/xv6-riscv.md) — MIT PDOS 出品的 RISC-V 教学操作系统，Unix v6 的 ANSI C 重实现，配套 6.1810 课程，10.8k 星
+- [xv6-riscv Book（教学操作系统教材）](0-Resources/5-Courses-Tutorials/xv6-riscv-book.md) — Russ Cox 等著的操作系统教材，逐章拆解 xv6-riscv 源码，MIT 6.828/6.1810 指定用书，在线免费读
 - [RISC-V Vector Primer (RVV 1.0 指南)](0-Resources/5-Courses-Tutorials/riscv-vector-primer.md) — 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension
 - [NEORV32](0-Resources/4-OpenSource-Projects/neorv32.md) — 纯 VHDL RISC-V SoC，支持 6 大 FPGA 厂商 + ASIC 流片
 - [XUANTIE-RV 玄铁](0-Resources/4-OpenSource-Projects/xuantie-rv.md) — 达摩院 RISC-V 开源生态，OpenC910/C906/E906 + wujian100 SoC
@@ -199,6 +202,8 @@
 - [Branch Education IC 系列](0-Resources/5-Courses-Tutorials/branch-education-ic-series.md) — 3D 动画科普：光刻→芯片制造→CPU 架构
 - [一生一芯（One Student One Chip）](0-Resources/5-Courses-Tutorials/ysyx-one-student-one-chip.md) — 中科院计算所 RISC-V 处理器芯片全流程设计培养计划，免费流片
 - [RISC-V Vector Primer (RVV 1.0 指南)](0-Resources/5-Courses-Tutorials/riscv-vector-primer.md) — 面向架构师/编译器/边缘 AI 开发者的 RVV 实践指南，延伸 Matrix Extension
+- [xv6-riscv Book（教学操作系统教材）](0-Resources/5-Courses-Tutorials/xv6-riscv-book.md) — Russ Cox 等著的操作系统教材，逐章拆解 xv6-riscv 源码，MIT 6.828/6.1810 指定用书，在线免费读
+- [xv6-riscv（MIT 教学操作系统）](0-Resources/5-Courses-Tutorials/xv6-riscv.md) — MIT PDOS 出品的 RISC-V 教学操作系统，Unix v6 的 ANSI C 重实现，配套 6.1810 课程，10.8k 星
 - [📄 Courses & Tutorials Index](0-Resources/5-Courses-Tutorials/README.md)
 
 </details>
@@ -206,6 +211,7 @@
 <details>
 <summary>6-Industry Standards</summary>
 
+- [RISC-V 规范库（Ratified Specifications Library）](0-Resources/6-Industry-Standards/riscv-specifications-library.md) — RISC-V International 官方规范库，ISA/配置集/平台/软件全部批准规范 HTML+PDF 一站式查阅
 - [📄 Industry Standards Index](0-Resources/6-Industry-Standards/README.md)
 
 </details>
@@ -409,6 +415,8 @@ ic-chip-design-learning/
 
 | Date       | Content                                       |
 |------------|-----------------------------------------------|
+| 2026-11-20 | Added RISC-V 规范库 — RISC-V International 官方批准规范汇总站（ISA/Profiles/平台/软件，HTML+PDF），填补 6-Industry-Standards 分类 |
+| 2026-11-19 | Added xv6-riscv + xv6-riscv Book — MIT 6.1810 教学操作系统源码与配套教材（Unix v6 的 RISC-V 重实现） |
 | 2026-10-31 | Added wave-mcp — 腾讯开源波形调试 MCP Server（37 工具 / FST 直读 / X 态追踪 / pass-fail diff），填补 3-EDA-Tools 分类 |
 | 2026-10-16 | Added 半導體製造概論 — chenwei810 913★ 制造全流程开放教材（24 章 + 术语/实务框，四语言） |
 | 2026-09-27 | Added HiEq · Layout 裸片图库 — 222 张处理器 die shot（25 家厂商、标注工艺节点），在线浏览与原图下载 |
